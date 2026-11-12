@@ -10,9 +10,11 @@
   "journal_submission_executed": false,
   "author_confirmation_pending": true,
   "file_hashes": {
-    "manuscript/article.pdf": "338ff2e7efa7b6b8b35c1701553b54f94711dcfb20ef2158d1aefa7415e60e9f",
-    "manuscript/metadata.yaml": "934498f63e708cb580bd783210646024bb8f5e70d0ece7f9f544e46cb3ea8c0c",
+    "manuscript/article.pdf": "746add184a3913a2826b71eda7cfb53062d62aa545160f789edfd3a7604b745e",
+    "manuscript/metadata.yaml": "d1d70b390f24279f124958c64f45c94cc0e4ef2d1daf3ada8175b9c9864538be",
     "publication/issue_body.md": "3b9cb3abfa00f60c2377eb0a961af44894357884d47641ebadabc3fc4e9159ee",
     "configs/protocol.json": "f13730f112d4dc01e9872f4cf27543dbedf8972144d916283e0be7ecc3aebc1c"
-  }
+  },
+  "hash_scope": "Files in this artifact; reproducible PDF/archive containers may differ between platforms.",
+  "private_staging_commit": "93b8ef8c8aad9e851e7aef6c3249cd674466fef3"
 }

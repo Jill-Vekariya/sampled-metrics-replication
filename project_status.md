@@ -13,3 +13,5 @@ Final local files: manuscript/article.pdf, manuscript/metadata.yaml, publication
 Remaining author-only step: actual confirmation of the proposed personal declarations and the original instruction's final public-release/submission authorization checkpoint. No declaration has been signed by the AI.
 
 Transport recovery: cached output confirmed the private repository creation succeeded (PID 18508, exit 0). Incremental checks had timed out, but the filesystem/cached-output route is responding. The repository is PRIVATE; do not create it again. No public-release or journal issue-creation command was executed. Numerical experiments are complete and need no rerun.
+
+Private upload is verified complete: main branch commit 93b8ef8c8aad9e851e7aef6c3249cd674466fef3, 123 tracked files, repository PRIVATE. No public release or journal submission was made.

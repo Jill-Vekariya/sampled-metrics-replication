@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "repository": "https://github.com/Jill-Vekariya/sampled-metrics-replication",
+  "verified_source_commit": "93b8ef8c8aad9e851e7aef6c3249cd674466fef3",
+  "manifest_integrity": "PASS",
+  "tests_passed": 40,
+  "manuscript_compilation": "PASS",
+  "generated_pdf_bytes": 568743,
+  "method": "Fresh authenticated GitHub clone, isolated Windows reproduction environment, documented numeric and manuscript dependencies.",
+  "dependency_repair": "The initial verifier invocation lacked PyYAML. Installing the documented manuscript requirements resolved it.",
+  "utc": "2026-11-12T14:14:13.453528+00:00"
+}

@@ -20,3 +20,5 @@
 - [ ] Public download URL test: not applicable before release authorization.
 
 NPZ-container portability: archived Windows array members were matched byte-for-byte to the independent Linux streams and repackaged; original device container hashes remain recorded. This does not claim identical ZIP container bytes across platforms.
+
+- [x] A fresh clone from the private GitHub repository passed manifest checks, all 40 tests and manuscript compilation using the isolated Windows reproduction environment. See publication/clone_verification_receipt.json.

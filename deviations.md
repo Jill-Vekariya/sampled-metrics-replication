@@ -7,3 +7,6 @@ The target was changed during feasibility selection, before protocol freeze or f
 3. The initial Linux test invocation from the parent directory could not import src. Rerunning from the documented project root passed all 40 tests. This command-context error did not affect the Windows study.
 4. Optional official LaTeX build was unavailable because its packages/bibliography backend were missing. Used the permitted alternative PDF build and mandatory metadata structure. See manuscript/TEMPLATE_ADAPTATION.md.
 5. No post-freeze scientific protocol changes. Source hashes distinguish the pre-portability Linux run from the corrected Windows implementation; their primary values agree within 1e-12.
+
+6. Publication preparation: incremental process-output checks timed out. Cached tail retrieval confirmed successful private repository creation; no duplicate creation was attempted.
+7. An initial staging command stopped before execution because its publication directory was absent; the directory was created. ZIP timestamp handling was then made portable with strict_timestamps=False after metadata-only transfer. Research file contents and actual ISO experiment timestamps were unchanged. The private staging upload subsequently completed.

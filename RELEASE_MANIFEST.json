@@ -1,7 +1,7 @@
 {
   "audit_results.md": {
-    "bytes": 5584,
-    "sha256": "5e03f2c01cabc547eafda028ba0f6fa0d8e37aff13cf32fdd321d053e09449bb"
+    "bytes": 5912,
+    "sha256": "e5483389c3984284f71c2688814354f6252e1bb2bdd4081d61c260726ddecc1b"
   },
   "blockers.md": {
     "bytes": 1234,
@@ -12,8 +12,8 @@
     "sha256": "24694f7f77bbf3aa604f2c7e726b431daaebf29d726dd4c5c185b6f45d0f2581"
   },
   "deviations.md": {
-    "bytes": 1274,
-    "sha256": "043e4c8edee4afab7ecc64b160f30f7e82e2506bf11e5513e9f2b06f4044ce92"
+    "bytes": 1817,
+    "sha256": "7701abd7a1f08f21c5e93e9648f83e39a69f58f79f3f9c382208f0249ce1e45b"
   },
   "experimental_design.md": {
     "bytes": 732,
@@ -24,20 +24,20 @@
     "sha256": "34ecba24c11d70a8fc2c7be0a2f973785e82265fcd66cdda97d58ad73fe2a3b3"
   },
   "project_status.md": {
-    "bytes": 1564,
-    "sha256": "791ce1dc9c2d694745a7636baa940f1474f8688ac36e93f2cf2bfa5a656e4690"
+    "bytes": 1752,
+    "sha256": "b18018ca6ecd9107cd343343c054fa90ea9aa5669669d91cf0a6404ab2954adc"
   },
   "protocol.md": {
     "bytes": 2381,
     "sha256": "c9042e5e7013f0405187c999dd0a7ef624759532b8bbb5c33a6419ee2d665b30"
   },
   "README.md": {
-    "bytes": 7130,
-    "sha256": "17342dbd09265abf9577458db7347b1479f5a3131a877a1479296194c3f13529"
+    "bytes": 7413,
+    "sha256": "cd7e9a6b30b1cbe061c20d4745af2e194e5af490c04c90bfc987de163b020ff2"
   },
   "reproducibility_checklist.md": {
-    "bytes": 1683,
-    "sha256": "3d048d8ef1ca2945b5b4174dffdb038f0a58cfa0cc7de8e31296445087b2aab1"
+    "bytes": 1929,
+    "sha256": "aba4e4a3d5cda34d35b7abea70ccc9dfa2dc0a7b357c8ad07012ca789ef62f48"
   },
   "research_plan.md": {
     "bytes": 445,
@@ -56,8 +56,8 @@
     "sha256": "c648847bffc1497e78b1e03f1e75cf71c1f934089ead5ef2a6d3fad90183bc47"
   },
   "submission_status.md": {
-    "bytes": 1657,
-    "sha256": "107145e4d7e8d8ed09c7d38a8bb9b8e7e4cff41974798ed697e08ec51faa759d"
+    "bytes": 1867,
+    "sha256": "64dc8a2ff7ca32fe5345467dfc8868707fd87ccacbb89c7fb18c4584e9b1941f"
   },
   "run_experiments.py": {
     "bytes": 8381,
@@ -76,8 +76,8 @@
     "sha256": "e4867033d2648fa49722d9b7d9420353ae7bfc434cd4d796de26d2374db8439a"
   },
   "verify_release.py": {
-    "bytes": 4768,
-    "sha256": "0a90a497e9d89249a6d34acd29e2ba366ffcc2077f8bd47d88ca3ce926c6131c"
+    "bytes": 4943,
+    "sha256": "1c26b02b5ad470f827af185fcd27edea557ba6bbdf681a65a306861f4d7ec792"
   },
   "requirements-lock-windows.txt": {
     "bytes": 295,
@@ -136,8 +136,8 @@
     "sha256": "00cd645b1fed13684f52318ca0ceb23bcde8f4078b622bd096fe5d272f7039e3"
   },
   ".gitignore": {
-    "bytes": 165,
-    "sha256": "594d1ecbe9f7da8f603672010ae05c95920764c5460fa446dd90cb5c21293175"
+    "bytes": 263,
+    "sha256": "8cca4d68d0e2d89a40a629357d530ad0b1bb2ba0c8c2c09ca7c2fc9840736841"
   },
   ".gitattributes": {
     "bytes": 8,
@@ -407,6 +407,10 @@
     "bytes": 1238,
     "sha256": "57e57036732cdb1c2cf5e8a172bfb604a6d5741e7b69437ec966bb7e5bcce750"
   },
+  "publication/clone_verification_receipt.json": {
+    "bytes": 629,
+    "sha256": "ba3e1cf1f5064651e4f37e36fdd6b27725f5f7ce7a28b12445e57c0f32a042f8"
+  },
   "publication/linux_array_member_hashes.json": {
     "bytes": 2228,
     "sha256": "f2ea92f15288624f3b327fe707a3e4d269998f6ae2af30684208100ae0fd109a"
@@ -419,9 +423,13 @@
     "bytes": 758,
     "sha256": "4afd59f4efc3ee81d1fb6f39c96d5fc5012c329f6d2f3a82baf6bf4344190055"
   },
+  "publication/private_repository_receipt.json": {
+    "bytes": 452,
+    "sha256": "bc973688d9cfb08c33e732bfa65889543e1835eeb61ed969fe226ef1f01d949c"
+  },
   "publication/release_plan.json": {
-    "bytes": 932,
-    "sha256": "75d586b8c6d0176bb06ca089f57bae914604356d9648c3dc13763cc6535178b5"
+    "bytes": 1131,
+    "sha256": "84f822025005fd99c28395315fe9b2ea78cacab36926205cd296cee09a69e9e1"
   },
   "publication/repository_attempt.json": {
     "bytes": 1181,
@@ -485,6 +493,6 @@
   },
   "audit/release_scan.json": {
     "bytes": 434,
-    "sha256": "4f50ca24dfbec7cb041c2eea31f7e2ca61cde13aacec532ba44a3fba1578c2ac"
+    "sha256": "11db1b5d7a021074fe509c0086579720d4e59e5e977e2f6e28934165ef4c6e73"
   }
 }

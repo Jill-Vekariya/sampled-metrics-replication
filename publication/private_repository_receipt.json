@@ -1,0 +1,12 @@
+{
+  "status": "PRIVATE_STAGING_COMPLETE",
+  "repository": "https://github.com/Jill-Vekariya/sampled-metrics-replication",
+  "private": true,
+  "branch": "main",
+  "commit": "93b8ef8c8aad9e851e7aef6c3249cd674466fef3",
+  "tracked_files": 123,
+  "checkout": "C:\\Users\\jillv\\Research\\recsys-replication-20261112\\publication_checkout",
+  "public_release_executed": false,
+  "journal_submission_executed": false,
+  "author_confirmation_pending": true
+}

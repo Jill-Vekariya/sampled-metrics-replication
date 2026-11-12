@@ -15,3 +15,5 @@ These are prepared target URLs, not verified public downloads.
 Author and contact are confirmed. Proposed personal declarations remain unconfirmed; final public release/submission authorization remains at the checkpoint reserved in the original instructions. No ORCID or author attestation is invented.
 
 Resume publication/PUBLISH_AFTER_APPROVAL.md after author confirmation and access recovery. Record an actual journal issue URL only after the official system confirms it.
+
+Private staging completed and was verified: commit 93b8ef8c8aad9e851e7aef6c3249cd674466fef3, main, 123 tracked files. Final public URL checks and journal submission still await the reserved author checkpoint.

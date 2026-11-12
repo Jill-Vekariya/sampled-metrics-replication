@@ -56,6 +56,8 @@ def main():
     checks['issue_body_has_required_urls']=all(x in issue for x in
         ['**Original article:**','**PDF URL:**','**Metadata URL:**','**Code URL:**',
          '/main/manuscript/article.pdf','/main/manuscript/metadata.yaml'])
+    plan=json.loads((ROOT/'publication/release_plan.json').read_text())
+    checks['reviewed_file_hashes_match']=all(digest(ROOT/f)==h for f,h in plan['file_hashes'].items())
     if args.manifest:
         manifest=json.loads((ROOT/'RELEASE_MANIFEST.json').read_text())
         checks['release_manifest_matches']=all((ROOT/f).is_file() and digest(ROOT/f)==entry['sha256']

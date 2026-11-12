@@ -46,3 +46,5 @@ Total 37/50, a subjective internal heuristic. This score does not establish subm
 ## Final preparation audit update
 
 Current form and metadata template were re-fetched and matched the previous audit. Metadata has the complete confirmed author/contact, corresponding-author marker, original DOI and intended code/data URLs, with a double-quoted abstract. The exact issue body and author review packet are prepared. The new offline release preflight passes required file, source hash, protocol, frozen claim, metadata, citation, clean reproduction, array member and analytical-condition checks. No public attestation is implied by this PASS.
+
+Final private-repository clone audit: the main-branch snapshot was cloned through the existing authenticated CLI, manifest checks passed, all 40 tests passed and the manuscript compiled with the documented dependencies. Public release and journal submission remain unexecuted.
