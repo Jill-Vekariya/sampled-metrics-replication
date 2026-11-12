@@ -107,7 +107,7 @@ def main():
     table(['Recommender','Full-catalogue ranks of the five relevant items'],
           [['A','100, 100, 100, 100, 100'],['B','40, 40, 8437, 9266, 4482'],
            ['C','212, 2, 743, 5342, 1548']],[82,389])
-    text("For one relevant item, AP(r)=1/r, NDCG(r)=1/log<sub>2</sub>(r+1), Recall@10(r)=1[r≤10], "
+    text("For one relevant item, AP(r)=1/r, NDCG(r)=1/log<sub>2</sub>(r+1), Recall@10(r)=1[râ‰¤10], "
          "and AUC(r)=(n-r)/(n-1). All reported scores are arithmetic means across the five instances. "
          "The untruncated AP and NDCG definitions follow the source.")
     text("The primary protocol samples m irrelevant items uniformly with replacement, excluding the relevant "
@@ -117,7 +117,7 @@ def main():
     text("Expected metrics are obtained by summing M(1+k)Pr(K=k), for k=0,...,m. The variance of a single "
          "five-instance macro evaluation is the sum of the five instance variances divided by 25, with draws "
          "independent across instances. SD below denotes the square root of this variance. The Monte Carlo "
-         "standard error of an average over R repeated evaluations is SD/√R; the two quantities are distinct.")
+         "standard error of an average over R repeated evaluations is SD/âˆšR; the two quantities are distinct.")
     text("The configuration was frozen before final metric evaluation (protocol v1.0). The primary sample "
          "size is 99 negatives. One thousand repetitions use NumPy seeds 20261112, 20261113 and 20261114 "
          "for A, B and C. Separate 100000-repeat checks use those seeds plus 10000. Twenty-three declared "
@@ -143,15 +143,15 @@ def main():
          "above B. Sampling reverses the A-versus-C comparison for both metrics, without requiring any "
          "particular random realization. The 1000-repeat AP estimates are 0.634902, 0.343412 and 0.325680 "
          "for A, B and C; the corresponding analytic expectations are shown in Table 2.")
-    table(['Model','AP expectation ± SD','NDCG expectation ± SD','Recall@10 expectation'],[
-        [model,f"{primary[model,'AP']['expected']:.6f} ± {primary[model,'AP']['analytic_sd']:.6f}",
-         f"{primary[model,'NDCG']['expected']:.6f} ± {primary[model,'NDCG']['analytic_sd']:.6f}",
+    table(['Model','AP expectation Â± SD','NDCG expectation Â± SD','Recall@10 expectation'],[
+        [model,f"{primary[model,'AP']['expected']:.6f} Â± {primary[model,'AP']['analytic_sd']:.6f}",
+         f"{primary[model,'NDCG']['expected']:.6f} Â± {primary[model,'NDCG']['analytic_sd']:.6f}",
          f"{primary[model,'Recall@10']['expected']:.6f}"] for model in ['A','B','C']],[45,151,160,115])
     text('<b>Table 2.</b> Analytic moments of a single five-instance evaluation, m=99, with replacement. '
          'The SD is not the uncertainty of the analytic expectation.','Small2')
     figure('rank_reversal.png','Figure 1. Full-catalogue metrics, sampled expectations and 1000-repeat Monte Carlo means for the published rank fixture.',168)
     text("Across the declared uncorrected sample sizes and both sampling schemes, the largest absolute AUC "
-         "expectation error is 1.23×10<super>-15</super> or less. Every calibration mean falls within five "
+         "expectation error is 1.23Ã—10<super>-15</super> or less. Every calibration mean falls within five "
          "analytic Monte Carlo standard errors of its target (largest absolute standardized error below 1.2).")
     page()
     head('5. Sample-size sensitivity and secondary analyses')
@@ -172,7 +172,7 @@ def main():
     head('6. Agreement, uncertainty and discrepancies')
     text("All primary directional checks pass. The source's Table 2 contains simulation estimates rather "
          "than exact expectations; its random seed is not specified in the selected article. For example, "
-         "the source reports A's sampled AP as 0.630±0.129, compared with the independently calculated "
+         "the source reports A's sampled AP as 0.630Â±0.129, compared with the independently calculated "
          "expectation 0.636592 and SD 0.130393. A repeated-evaluation mean need not match to three decimals.")
     text("No published Table 2 mean triggers the frozen diagnostic threshold: a 0.0005 rounding allowance "
          "plus 3.29 combined standard errors, conditional on the source's stated 1000 independent "
@@ -248,7 +248,7 @@ def main():
       'replication':[{'cite':refs[0][4:]},{'bib':'krichene2021'},{'url':'https://www.ijcai.org/proceedings/2021/0651.pdf'},
                      {'doi':'10.24963/ijcai.2021/651'}],
       'abstract':abstract,'bibliography':'bibliography.bib','type':'Replication','domain':'Machine Learning',
-      'language':'Python','review':[{'url':''}],
+      'language':'Python','review':[{'url':(json.loads((ROOT/'publication/submission_receipt.json').read_text()).get('issue_url','') if (ROOT/'publication/submission_receipt.json').exists() else '')}],
       'contributors':[{'name':'','orcid':'','role':x} for x in ['editor','reviewer','reviewer']],
       'dates':[{'received':''},{'accepted':''},{'published':''}],
       'article':[{'number':''},{'doi':''},{'url':''}],

@@ -14,3 +14,7 @@ manuscript/*.blg
 /publication_checkout/
 /publication_clone_verification/
 *.b64
+
+# Device publication helpers and execution traces
+/publication/*.py
+/publication/*.log

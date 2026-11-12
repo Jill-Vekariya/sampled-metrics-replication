@@ -39,7 +39,7 @@ type: Replication
 domain: Machine Learning
 language: Python
 review:
-- url: ''
+- url: https://github.com/ReScience/submissions/issues/158
 contributors:
 - name: ''
   orcid: ''

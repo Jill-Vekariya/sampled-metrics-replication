@@ -1,0 +1,23 @@
+{
+  "status": "SUBMITTED - AWAITING EDITORIAL HANDLING",
+  "verified_at": "2026-11-12T14:49:08.174467+00:00",
+  "journal": "ReScience C",
+  "issue_number": 158,
+  "issue_url": "https://github.com/ReScience/submissions/issues/158",
+  "issue_state": "open",
+  "created_at": "2026-11-12T14:49:07Z",
+  "updated_at": "2026-11-12T14:49:07Z",
+  "author_login": "Jill-Vekariya",
+  "title": "[Re] Ranking reversals under sampled recommendation metrics",
+  "body_sha256": "3b9cb3abfa00f60c2377eb0a961af44894357884d47641ebadabc3fc4e9159ee",
+  "submitted_body": "**Original article:**\nWalid Krichene and Steffen Rendle. *On Sampled Metrics for Item Recommendation (Extended Abstract).* Proceedings of IJCAI 2021, pp. 4784-4788. DOI: https://doi.org/10.24963/ijcai.2021/651\n\n**PDF URL:** https://raw.githubusercontent.com/Jill-Vekariya/sampled-metrics-replication/main/manuscript/article.pdf\n\n**Metadata URL:** https://raw.githubusercontent.com/Jill-Vekariya/sampled-metrics-replication/main/manuscript/metadata.yaml\n\n**Code URL:** https://github.com/Jill-Vekariya/sampled-metrics-replication\n\n**Scientific domain:** Machine Learning\n\n**Programming language:** Python\n\n**Suggested editor:** No preference; editorial assignment is requested.\n\n**Replication scope:** Partial replication of the three constructed rank lists in Tables 1-2 and the expectation-curve findings in Figures 2-3. It does not include the KDD 2020 trained-model experiment. Finite-distribution expectations, independent random simulations, small-catalogue exhaustive checks and a clean Windows reproduction support the AP/NDCG ranking-reversal result; expected AUC remains invariant. Narrow scope and uncertainty are documented in the manuscript.\n\n**Reproduction:** Install requirements.txt, run `python -m pytest -q`, then `python run_experiments.py --output results/reviewer-run` and `python compare_results.py results/reviewer-run`. Manuscript requirements and build instructions are in README.md.\n\n**AI assistance:** ChatGPT assisted with code generation, tool-driven execution, analysis and drafting, as disclosed in the article. Internal assessments are not independent human peer review.\n",
+  "release_commit": "f5bc3c4b090f5ebf0e60fa5c68eb9be9756092e2",
+  "reused_existing_issue": false,
+  "assignees": [],
+  "labels": [],
+  "editor_assigned": false,
+  "peer_review_assignment_confirmed": false,
+  "accepted": false,
+  "published": false,
+  "replication_journal_doi": null
+}

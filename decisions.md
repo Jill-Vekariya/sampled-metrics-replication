@@ -6,3 +6,7 @@
 5. ReScience eligibility remains an editorial judgment. A small, well-known illustrative result may be deemed insufficient; do not call this submission-ready merely because code runs.
 6. Primary sampling uses replacement as specified by Section 3.2. Without-replacement sampling and floor rank correction are declared secondary analyses before evaluation.
 7. No original core code is reused. NumPy/SciPy probability functions are dependencies, checked against exhaustive combinatorics and direct random item sampling.
+
+## Authorized public release and submission, 12 November 2026
+
+The author confirmed the final declarations and explicitly instructed submission. The existing repository was made public after approved file and manifest checks. Anonymous downloads matched the release hashes. The exact prepared issue was created once at https://github.com/ReScience/submissions/issues/158 and read back. Scope, source, protocol and results are unchanged. Open submission is recorded as awaiting editorial handling, without inventing a decision or DOI.

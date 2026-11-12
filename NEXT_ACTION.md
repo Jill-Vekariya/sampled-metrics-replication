@@ -1,7 +1,7 @@
-# Complete authorized submission
+# Await journal handling
 
-1. Verify the final approved files and frozen evidence, then push the existing repository without force.
-2. Make the existing repository public under the confirmed authorization. Verify unauthenticated repository, PDF and metadata access.
-3. Check for a duplicate and submit the exact publication/issue_body.md to ReScience/submissions once.
-4. Read the official issue back and record the actual URL and state. An open issue means submitted and awaiting editorial handling; it does not mean accepted or published.
-5. Save the final manuscript and research package, including the submission receipt. Future editorial responses require actual journal comments.
+Submission is complete: https://github.com/ReScience/submissions/issues/158.
+
+The next action is external editorial handling. If the journal posts questions or revision requests, address the actual comments and retain the frozen original evidence. Do not create another submission or claim acceptance, publication, a DOI or assigned peer review without official confirmation.
+
+Final evidence: publication/submission_receipt.json and publication/public_release_receipt.json. The downloadable research package contains the article, implementation, inputs, results, tests and status records. No additional research rerun is required for this checkpoint.

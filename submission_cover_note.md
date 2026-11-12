@@ -1,23 +1,17 @@
-# Draft submission note - not sent
+# Submitted journal request
 
-Proposed title: [Re] Ranking reversals under sampled recommendation metrics
+The exact sent text is publication/issue_body.md. It was submitted once to ReScience C at https://github.com/ReScience/submissions/issues/158 on 2026-11-12T14:49:07Z. The title, author and body were read back from the official system.
 
-Original article: Walid Krichene and Steffen Rendle, On Sampled Metrics for Item Recommendation (Extended Abstract), IJCAI 2021, pp.4784-4788. DOI 10.24963/ijcai.2021/651.
+Title: [Re] Ranking reversals under sampled recommendation metrics
+Author: Jill Vekariya, Independent researcher
+Correspondence: jillvekariya.10@gmail.com
+Original article: Krichene and Rendle, IJCAI 2021, DOI 10.24963/ijcai.2021/651.
 
-This proposed partial replication independently recalculates the published fixed-rank example (Tables 1-2 and expectation-curve findings in Figures 2-3). Finite probability calculations, repeated random evaluations, exhaustive small-catalogue tests and a clean Windows rerun support the original AP/NDCG ranking-reversal finding. Expected AUC is invariant. The study also separates published rounding from exact ties and includes prespecified without-replacement and simple rank-correction analyses.
+The scoped partial replication covers the fixed-rank example in Tables 1-2 and findings of Figures 2-3. It reproduces AP/NDCG ranking reversal and AUC invariance through finite expectations, simulation, exhaustive correctness checks and a clean Windows rerun. It does not reproduce the KDD 2020 trained-model experiment or Zhao et al.'s splitting benchmark. Scope limits and AI assistance are disclosed.
 
-The work does not replicate neural training, the KDD 2020 real-data experiment or Zhao et al.'s multi-model splitting experiment. The small numerical scope and limited novelty are stated explicitly for editorial assessment. Code, tests, evidence and reproduction instructions will be publicly accessible only after author approval.
+Code: https://github.com/Jill-Vekariya/sampled-metrics-replication
+PDF: https://raw.githubusercontent.com/Jill-Vekariya/sampled-metrics-replication/main/manuscript/article.pdf
+Metadata: https://raw.githubusercontent.com/Jill-Vekariya/sampled-metrics-replication/main/manuscript/metadata.yaml
+Domain: Machine Learning. Language: Python. Editorial assignment requested without naming a preferred editor.
 
-PDF URL: pending authorized repository publication
-
-Metadata URL: pending author verification and authorized publication
-
-Code URL: proposed https://github.com/Jill-Vekariya/sampled-metrics-replication (not created; availability and account access unverified)
-
-Scientific domain: Machine Learning
-
-Programming language: Python
-
-Suggested editor: not selected; choose from the current official board if required.
-
-Author: Jill Vekariya, independent researcher (name confirmed by the user; status supplied in the original instructions). Corresponding email: jillvekariya.10@gmail.com. ORCID may be added if held. Declarations, originality and responsibility: awaiting author confirmation. AI assistance and the absence of independent human peer review are disclosed in the manuscript. Do not post this note with unresolved fields.
+The approved author declarations are recorded in publication/author_declarations.proposed.json. No ORCID was supplied. The submission is open and awaiting editorial handling; it is not an accepted publication.

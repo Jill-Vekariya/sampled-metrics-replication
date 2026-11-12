@@ -1,5 +1,5 @@
-# Remaining external steps
+# External status
 
-No research or author-authorization blocker remains. The author's 12 November 2026 response confirms the final declarations and authorizes public release and ReScience C submission. The code, frozen inputs and numerical evidence are complete.
+No pending research, author-authorization, public-release or initial-submission blocker remains. The complete package was released publicly and submitted to ReScience C: https://github.com/ReScience/submissions/issues/158.
 
-At this checkpoint, verify public repository/PDF/metadata access, create one journal submission, and read the official issue back. The journal determines editorial suitability, reviewer assignment and acceptance. The narrow illustrative scope remains disclosed.
+The journal must assess scope/suitability and assign an editor/reviewers. No editorial decision or independent human review is claimed. The designed five-instance example remains an explicit scientific limitation. Future response work requires actual journal comments.

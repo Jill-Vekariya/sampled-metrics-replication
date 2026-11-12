@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-12T14:48:19.581740+00:00",
+  "repository": "https://github.com/Jill-Vekariya/sampled-metrics-replication",
+  "private": false,
+  "release_commit": "f5bc3c4b090f5ebf0e60fa5c68eb9be9756092e2",
+  "anonymous_checks": {
+    "repository": {
+      "status": 200,
+      "url": "https://api.github.com/repos/Jill-Vekariya/sampled-metrics-replication",
+      "bytes": 6292,
+      "sha256": "969211fdb99bd52389c1854961f96e1dba59ec62e34b3f2603b65935537e076f"
+    },
+    "head": {
+      "status": 200,
+      "url": "https://api.github.com/repos/Jill-Vekariya/sampled-metrics-replication/commits/main",
+      "bytes": 63216,
+      "sha256": "7ff4e04e633e60acf600ecd471bbbfc4c98842ee4e156e56055e01035c48cb00"
+    },
+    "manuscript/article.pdf": {
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/Jill-Vekariya/sampled-metrics-replication/main/manuscript/article.pdf",
+      "bytes": 568542,
+      "sha256": "e3d78514434e401aa4e37052d985758ddd61e330dbd3e5ac5f16b5d38b66eb57"
+    },
+    "manuscript/metadata.yaml": {
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/Jill-Vekariya/sampled-metrics-replication/main/manuscript/metadata.yaml",
+      "bytes": 2244,
+      "sha256": "e3c54511608de0e0bf6da0593ad620cceec360727a3a64c7c9b05b283b49ff7d"
+    },
+    "configs/protocol.json": {
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/Jill-Vekariya/sampled-metrics-replication/main/configs/protocol.json",
+      "bytes": 10195,
+      "sha256": "f13730f112d4dc01e9872f4cf27543dbedf8972144d916283e0be7ecc3aebc1c"
+    }
+  },
+  "author_authorized": true,
+  "journal_submission_executed": false,
+  "record_scope": "Public verification immediately before submission; subsequent submission is recorded separately."
+}

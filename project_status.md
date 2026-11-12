@@ -1,10 +1,11 @@
 # Project status
-AUTHORIZED RELEASE IN PREPARATION
+SUBMITTED - AWAITING EDITORIAL HANDLING
 
-The frozen study, independent code, actual Windows experiments, 40 tests, clean Windows numerical reproduction, Linux comparison, six-page manuscript, author/contact metadata and exact journal issue text are complete. The author approved release and submission on 12 November 2026. Code, inputs and numerical results remain unchanged.
+Completed: frozen protocol; independent implementation; actual Windows experiments; 40 passing tests; clean Windows numerical reproduction; Linux comparison; six-page article; author/contact metadata and declarations; public repository and anonymous URL/hash checks; actual ReScience C submission and official readback.
 
-Scope: the IJCAI 2021 fixed-rank example (Tables 1-2 and expectation-curve findings in Figures 2-3), not a trained-model benchmark or the larger Zhao study.
+Official submission: https://github.com/ReScience/submissions/issues/158
+Public repository: https://github.com/Jill-Vekariya/sampled-metrics-replication
 
-Author: Jill Vekariya, Independent researcher. Correspondence: jillvekariya.10@gmail.com. ORCID was not supplied. The conversational confirmation is preserved in publication/author_declarations.proposed.json.
+Scope: the IJCAI 2021 fixed-rank example (Tables 1-2 and expectation-curve findings in Figures 2-3), not a trained-model benchmark or the larger Zhao study. Scientific code, inputs and results are unchanged. The author approved release and submission on 12 November 2026; no signature or ORCID was generated.
 
-The existing GitHub repository is private at this checkpoint. Public access and actual submission must be verified before marking those actions complete. No acceptance or publication is claimed.
+All currently actionable preparation/release/submission work is complete. Editorial triage, reviewer assignment, decisions and any future requested revisions remain external. This is submitted, not accepted or published.

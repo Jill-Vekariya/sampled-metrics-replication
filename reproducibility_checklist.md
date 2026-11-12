@@ -15,10 +15,14 @@
 - [x] PDF source compiles using ReportLab with bundled licensed fonts; manuscript numerical consistency checked.
 - [x] Final PDF pages visually reviewed after layout repair.
 - [x] Manuscript dependencies installed and the entire PDF compiled in a fresh isolated Linux environment; see publication/manuscript_build_reproduction.json.
-- [ ] Clean Windows manuscript build: not performed; Windows numerical/figure reproduction passed and the later author metadata PDF compiled in the original Windows environment.
+- [x] Clean Windows manuscript build: completed in the isolated reproduction environment and fresh GitHub clone; see publication/clone_verification_receipt.json.
 - [ ] External human reproduction: not performed.
-- [ ] Public download URL test: not applicable before release authorization.
+- [x] Anonymous public repository/PDF/metadata/protocol downloads passed HTTP and SHA256 checks.
 
 NPZ-container portability: archived Windows array members were matched byte-for-byte to the independent Linux streams and repackaged; original device container hashes remain recorded. This does not claim identical ZIP container bytes across platforms.
 
 - [x] A fresh clone from the private GitHub repository passed manifest checks, all 40 tests and manuscript compilation using the isolated Windows reproduction environment. See publication/clone_verification_receipt.json.
+
+- [x] Author-approved public release and actual ReScience C submission read back: https://github.com/ReScience/submissions/issues/158.
+
+External human review and journal decisions remain external, rather than unfinished computational checks.
