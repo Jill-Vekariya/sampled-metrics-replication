@@ -1,0 +1,2 @@
+# Research plan
+Audit sources -> freeze rank-fixture protocol -> write independent metric and probability engine -> validate mathematical identities and exhaustive finite catalogues -> run original 1000-repeat experiment and deterministic expectations -> run declared sensitivity analyses -> regenerate tables and plots -> compile manuscript -> rerun in clean environment -> audit and prepare submission. No public release before authorization.

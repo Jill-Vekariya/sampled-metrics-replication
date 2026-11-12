@@ -1,0 +1,20 @@
+{
+  "protocol_sha256": "f13730f112d4dc01e9872f4cf27543dbedf8972144d916283e0be7ecc3aebc1c",
+  "start_utc": "2026-11-12T12:37:26.407811+00:00",
+  "git_commit": "bcb1be72d1f9a8764b9d46030f406cadd6dc4b4e",
+  "source_hashes": {
+    "run_experiments.py": "21876db88e7af74c5aa01b4d8f6a9b7c0f9a1bccb06265e5d327b9aef20eb936",
+    "src/metrics.py": "6f0e03d7ba72340df06421864d072e4e406ccce856c3105f75cb3da0a66818d4",
+    "configs/protocol.json": "f13730f112d4dc01e9872f4cf27543dbedf8972144d916283e0be7ecc3aebc1c"
+  },
+  "environment": {
+    "python": "3.13.3",
+    "os": "Windows-11-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 3, GenuineIntel",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "primary": [],
+  "checks": {},
+  "status": "running"
+}

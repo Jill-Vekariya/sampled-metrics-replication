@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Draft research software. Publication and public-release authorization are pending."
+type: software
+title: "Ranking reversals under sampled recommendation metrics"
+authors:
+  - family-names: Vekariya
+    given-names: Jill
+    email: jillvekariya.10@gmail.com
+license: MIT

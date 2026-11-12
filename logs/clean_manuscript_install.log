@@ -1,0 +1,17 @@
+Collecting reportlab<5,>=4 (from -r recsys-replication/requirements-manuscript.txt (line 1))
+  Downloading reportlab-4.5.1-py3-none-any.whl.metadata (1.7 kB)
+Collecting PyYAML<7,>=6 (from -r recsys-replication/requirements-manuscript.txt (line 2))
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting pillow>=9.0.0 (from reportlab<5,>=4->-r recsys-replication/requirements-manuscript.txt (line 1))
+  Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting charset-normalizer (from reportlab<5,>=4->-r recsys-replication/requirements-manuscript.txt (line 1))
+  Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+Downloading reportlab-4.5.1-py3-none-any.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 21.0 MB/s eta 0:00:00
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 9.1 MB/s eta 0:00:00
+Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 39.1 MB/s eta 0:00:00
+Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+Installing collected packages: PyYAML, pillow, charset-normalizer, reportlab
+Successfully installed PyYAML-6.0.3 charset-normalizer-3.5.2 pillow-13.0.0 reportlab-4.5.1

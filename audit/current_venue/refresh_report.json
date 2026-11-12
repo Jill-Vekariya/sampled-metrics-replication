@@ -1,0 +1,80 @@
+{
+  "checked_utc": "2026-11-12T13:18:26.782665+00:00",
+  "sources": {
+    "submission_repo": {
+      "url": "https://api.github.com/repos/ReScience/submissions",
+      "status": 200,
+      "bytes": 6242,
+      "sha256": "074b532f20877a98bb6b8673a00c01b97be56bf682d98439ea5d448177325a5b",
+      "file": "audit/current_venue/submission_repo.json"
+    },
+    "submission_form": {
+      "url": "https://raw.githubusercontent.com/ReScience/submissions/master/.github/ISSUE_TEMPLATE/replication.md",
+      "status": 200,
+      "bytes": 239,
+      "sha256": "98313907d57a78cdb6ea8a72e6008a83ee5230444d0f75e554f0f6a9051c18b3",
+      "file": "audit/current_venue/submission_form.txt"
+    },
+    "metadata_template": {
+      "url": "https://raw.githubusercontent.com/ReScience/template/master/metadata.yaml",
+      "status": 200,
+      "bytes": 4608,
+      "sha256": "2184eba98a1a04021626c268c452451d1bb1ad314c106af81a94fc5298390db1",
+      "file": "audit/current_venue/metadata_template.txt"
+    },
+    "journal_write": {
+      "url": "https://rescience.github.io/write/",
+      "status": 200,
+      "bytes": 7674,
+      "sha256": "af315b414209934144c48b55b3fc6e818b385e5c6ce303d814420782be4e6e67",
+      "file": "audit/current_venue/journal_write.txt"
+    },
+    "journal_faq": {
+      "url": "https://rescience.github.io/faq/",
+      "status": 200,
+      "bytes": 13343,
+      "sha256": "015cc1b510dcbe5538cf14938365cb82e92a01073213f40f5a732657ee3af337",
+      "file": "audit/current_venue/journal_faq.txt"
+    },
+    "journal_board": {
+      "url": "https://rescience.github.io/board/",
+      "status": 200,
+      "bytes": 18712,
+      "sha256": "9569eab314c22b04dceaab5fd829436078e6e7bc8fff29932ce05e038280afb7",
+      "file": "audit/current_venue/journal_board.txt"
+    },
+    "proposed_repo": {
+      "url": "https://api.github.com/repos/Jill-Vekariya/sampled-metrics-replication",
+      "status": 404,
+      "error": "HTTP Error 404: Not Found"
+    },
+    "overlap_issues": {
+      "url": "https://api.github.com/search/issues?q=repo%3AReScience%2Fsubmissions+%22sampled%22",
+      "status": 200,
+      "bytes": 28053,
+      "sha256": "55bc7099c845c5e5655682371838cd9f0ed43a219b76180761db618e553b7c6e",
+      "file": "audit/current_venue/overlap_issues.json"
+    },
+    "overlap_krichene": {
+      "url": "https://api.github.com/search/issues?q=repo%3AReScience%2Fsubmissions+Krichene",
+      "status": 200,
+      "bytes": 79,
+      "sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+      "file": "audit/current_venue/overlap_krichene.json"
+    },
+    "overlap_public_code": {
+      "url": "https://api.github.com/search/repositories?q=%22sampled+metrics%22+replication",
+      "status": 200,
+      "bytes": 55,
+      "sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "file": "audit/current_venue/overlap_public_code.json"
+    },
+    "overlap_issues_all": {
+      "url": "https://api.github.com/repos/ReScience/submissions/issues?state=all&per_page=100",
+      "status": 200,
+      "bytes": 630071,
+      "sha256": "3b49e86884947fee86c19e733d186de6d750ecfc046069e6d271b11a5a75e32f",
+      "file": "audit/current_venue/overlap_issues_all.json"
+    }
+  }
+}

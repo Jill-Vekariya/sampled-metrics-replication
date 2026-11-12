@@ -1,0 +1,32 @@
+[
+  {
+    "name": "numpy",
+    "version": "2.3.5",
+    "license_expression": null,
+    "license_summary": "Copyright (c) 2005-2025, NumPy Developers."
+  },
+  {
+    "name": "scipy",
+    "version": "1.17.0",
+    "license_expression": null,
+    "license_summary": "Copyright (c) 2001-2002 Enthought, Inc. 2003, SciPy Developers."
+  },
+  {
+    "name": "matplotlib",
+    "version": "3.10.8",
+    "license_expression": null,
+    "license_summary": "License agreement for matplotlib versions 1.3.0 and later"
+  },
+  {
+    "name": "reportlab",
+    "version": "4.4.9",
+    "license_expression": null,
+    "license_summary": "BSD license (see license.txt for details), Copyright (c) 2000-2025, ReportLab Inc."
+  },
+  {
+    "name": "PyYAML",
+    "version": "6.0.3",
+    "license_expression": null,
+    "license_summary": "MIT"
+  }
+]

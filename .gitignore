@@ -1,0 +1,11 @@
+.venv*/
+__pycache__/
+.pytest_cache/
+*.pyc
+manuscript/*.aux
+manuscript/*.log
+manuscript/*.out
+manuscript/*.bcf
+manuscript/*.run.xml
+manuscript/*.bbl
+manuscript/*.blg

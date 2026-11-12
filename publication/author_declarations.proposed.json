@@ -1,0 +1,17 @@
+{
+  "status": "PROPOSED — NOT CONFIRMED OR SIGNED",
+  "author": "Jill Vekariya",
+  "email": "jillvekariya.10@gmail.com",
+  "affiliation": "Independent researcher",
+  "funding_from_original_user_instructions": "No external research funding.",
+  "statements_requiring_author_confirmation": {
+    "review_and_responsibility": "I have reviewed the manuscript and research outputs, approve them, and accept responsibility for their contents, including the disclosed AI assistance.",
+    "original_author_relationship": "The replicated original research is not my own work or the work of my close collaborators.",
+    "competing_interests": "I have no competing interests to declare, or I will supply the disclosures that must be included before release.",
+    "concurrent_submission": "This manuscript is not currently under consideration at another journal.",
+    "release_permission": "I authorize public release of this specific research package under MIT for code and CC BY 4.0 for the manuscript, including my supplied author name and corresponding email, and submission to ReScience C."
+  },
+  "author_confirmation_received": false,
+  "public_release_authorized": false,
+  "orcid": "Leave blank unless the author supplies an ORCID."
+}

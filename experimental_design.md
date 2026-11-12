@@ -1,0 +1,3 @@
+# Experimental design
+Deterministic exact distribution calculations establish bias conditional on fixed ranks. Monte Carlo provides an independently simulated check and reproduces the published 1000-repetition procedure. The five instances are constructed and fixed, so population inference, user bootstrapping, training seeds and model optimization do not apply. Report analytic SD of a single five-instance macro evaluation separately from MCSE of a repeated-evaluation mean.
+Direct simulation samples actual negative item indices in a small catalogue, independently of the probability engine. Exhaustive enumeration tests all subsets/sequences for small n. All publication tables must be generated from machine-readable results.

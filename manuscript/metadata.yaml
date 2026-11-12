@@ -1,0 +1,65 @@
+# Release candidate: author declarations and public visibility await confirmation.
+title: '[Re] Ranking reversals under sampled recommendation metrics'
+authors:
+- name: Jill Vekariya
+  orcid: ''
+  email: jillvekariya.10@gmail.com
+  affiliations: 1,*
+affiliations:
+- code: 1
+  name: Independent researcher
+  address: ''
+keywords: recommender systems, sampled metrics, partial replication, Python
+code:
+- url: https://github.com/Jill-Vekariya/sampled-metrics-replication
+- doi: ''
+- swh: ''
+data:
+- url: https://github.com/Jill-Vekariya/sampled-metrics-replication/tree/main/configs
+- doi: ''
+replication:
+- cite: 'W. Krichene and S. Rendle. On Sampled Metrics for Item Recommendation (Extended
+    Abstract). Proceedings of IJCAI 2021, pp. 4784-4788. DOI: 10.24963/ijcai.2021/651.
+    Primary replication target.'
+- bib: krichene2021
+- url: https://www.ijcai.org/proceedings/2021/0651.pdf
+- doi: 10.24963/ijcai.2021/651
+abstract: "An independent Python implementation is used to revisit the fixed-rank\
+  \ counterexample in Krichene and Rendle's IJCAI 2021 article. Finite-distribution\
+  \ expectations, 1000-repeat Monte Carlo evaluations and separate 100000-repeat checks\
+  \ reproduce the central ranking reversal. Full-catalogue average precision favors\
+  \ C over A (0.101379 versus 0.010000), whereas evaluating with 99 uniformly sampled\
+  \ negatives favors A over C (expected values 0.636592 versus 0.326169). Expected\
+  \ AUC is invariant to sample size. All 12 printed exact-metric values agree at the\
+  \ source's three-decimal precision. Secondary calculations retain the reversal without\
+  \ replacement and show remaining bias after a simple rank correction. The evidence\
+  \ concerns a designed five-instance example, not trained models or real users."
+bibliography: bibliography.bib
+type: Replication
+domain: Machine Learning
+language: Python
+review:
+- url: ''
+contributors:
+- name: ''
+  orcid: ''
+  role: editor
+- name: ''
+  orcid: ''
+  role: reviewer
+- name: ''
+  orcid: ''
+  role: reviewer
+dates:
+- received: ''
+- accepted: ''
+- published: ''
+article:
+- number: ''
+- doi: ''
+- url: ''
+journal:
+- name: ReScience C
+- issn: 2430-3658
+- volume: ''
+- issue: ''

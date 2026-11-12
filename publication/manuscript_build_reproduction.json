@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "fresh_virtual_environment": true,
+  "environment": {
+    "python": "3.12.14",
+    "reportlab": "4.5.1",
+    "PyYAML": "6.0.3"
+  },
+  "build_log": "logs/clean_manuscript_build.log",
+  "pdf_pages": 6,
+  "author": "Jill Vekariya",
+  "metadata_abstract_double_quoted": true,
+  "scientific_evidence_unchanged": true
+}

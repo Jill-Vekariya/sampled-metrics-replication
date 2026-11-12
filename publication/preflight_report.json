@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "checks": {
+    "required_files_nonempty": true,
+    "scientific_source_hashes_match": true,
+    "protocol_hash_matches": true,
+    "all_frozen_claim_checks_pass": true,
+    "correct_author_and_contact": true,
+    "correct_venue_metadata": true,
+    "repository_url_populated": true,
+    "citation_identity_matches": true,
+    "clean_windows_reproduction_identical": true,
+    "raw_array_member_hashes_match": true,
+    "all_declared_analytical_conditions_retained": true,
+    "pdf_has_pdf_header": true,
+    "issue_body_has_required_urls": true
+  },
+  "author_confirmation_received": false,
+  "public_release_authorized": false,
+  "note": "Offline preflight cannot establish public URL accessibility or actual journal submission."
+}

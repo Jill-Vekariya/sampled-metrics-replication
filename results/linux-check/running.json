@@ -1,0 +1,20 @@
+{
+  "protocol_sha256": "f13730f112d4dc01e9872f4cf27543dbedf8972144d916283e0be7ecc3aebc1c",
+  "start_utc": "2026-11-12T12:36:20.051034+00:00",
+  "git_commit": "34be917cd56779a3043451fe4f1734e837e5a849",
+  "source_hashes": {
+    "run_experiments.py": "c82e872e5be6f2df7208a50018d20bad7938fe509a5e54d6ba9afeea51a34457",
+    "src/metrics.py": "6f0e03d7ba72340df06421864d072e4e406ccce856c3105f75cb3da0a66818d4",
+    "configs/protocol.json": "f13730f112d4dc01e9872f4cf27543dbedf8972144d916283e0be7ecc3aebc1c"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "cpu": "",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "primary": [],
+  "checks": {},
+  "status": "running"
+}

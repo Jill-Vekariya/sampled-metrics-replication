@@ -1,0 +1,12 @@
+{
+  "selected_files": 121,
+  "secret_pattern_findings": [],
+  "third_party_pdfs_included": false,
+  "environment_directories_included": false,
+  "git_directory_included": false,
+  "author_name_verified": true,
+  "corresponding_email_verified": true,
+  "author_declarations_pending": true,
+  "public_release_authorized": false,
+  "caveat": "Pattern scanning is not a guarantee; the archive has not been publicly released."
+}

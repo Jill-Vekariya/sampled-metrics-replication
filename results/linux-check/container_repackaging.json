@@ -1,0 +1,41 @@
+{
+  "note": "Linux execution NPY streams were verified byte-for-byte equal to the existing Windows streams; matching Windows ZIP containers were copied for transfer efficiency. No simulation was substituted or rerun.",
+  "linux_member_hashes": {
+    "C_calibration_draws.npz": {
+      "AUC.npy": "9a3431252f4502a7583732be19eacf9591b72e6177592e07077c8d3d756e5598",
+      "AP.npy": "dc897c2d7bd7070fb9bd7370307535db90a911bb1b0114383911cb275562933f",
+      "NDCG.npy": "5755a6fe08b1204070b2e7bd4905701b2776fbbbc995c2458c865e2328e6d8f9",
+      "Recall@10.npy": "e4b909d312ce70d664a46c7c88636b1b730401eab4ba3ec5300a80b373d8a70e"
+    },
+    "C_primary_draws.npz": {
+      "AUC.npy": "d307e7186e11cc0db80d11385a3661c780e2c6410ca83a801c75c219c42d7617",
+      "AP.npy": "46c1c6ae3623e1a5bc4a61ee65a8a8d305984cb6d02f22b2ad6d8963f6bfc72c",
+      "NDCG.npy": "16c7fa121b39d8a3bfccef07836aef239d67896ab9435b0e78dff2149b49e85e",
+      "Recall@10.npy": "c72b4abbb537a0c249ab8ee193870f3f6621a6d5c0dd97420c35d0d6364400b2"
+    },
+    "A_primary_draws.npz": {
+      "AUC.npy": "38e7b7e9ffd9b55ec52b2556922f3f13b5bf9c13b0f1ef79d43f261ffc82fa3b",
+      "AP.npy": "64a37b2af0f428540c0b262d3392ec39446e727be86b69f74107e897e6d98cbe",
+      "NDCG.npy": "6fab53d3cbbd8d71ce750c0a84277cb26a0c79da0cc08dbaeef6206d205353e8",
+      "Recall@10.npy": "a5d74ca0c51e52d06f8a767a22d0b02325b7db291359bc2005b8ef6f4b0ca1e5"
+    },
+    "B_primary_draws.npz": {
+      "AUC.npy": "db0a2c09e1e1ae25d4c39e4cd7ffb732be411a4f730cc19973aea42f1467e0e4",
+      "AP.npy": "cda4ec2d4efd7ecefc21c4163fddbccf71e082014a77cb4254c65bebdcf8ccbc",
+      "NDCG.npy": "eddac1000b0d6e716bff580119fd20eec75cf5d1c12625a165209499ce9b46cb",
+      "Recall@10.npy": "7d4a0e318becd16216f12b518f7061edd456ffa9dda328d00c2ec150d45bc6bb"
+    },
+    "A_calibration_draws.npz": {
+      "AUC.npy": "d9a0cd5cfc149a236593eebc868dc36a43c7f4f2f4da9049fca9a1e3547aa090",
+      "AP.npy": "346d72a09f2ba3805cab0789930ba65ac0997dddaeb051b5537727fc8809c464",
+      "NDCG.npy": "b7025e96a06015397456f227b7ff2ab5fe00a6df8831a57c23327dda9d19eaa3",
+      "Recall@10.npy": "c825aad7392f53f6fc4da47c6c69a7bb3aab75c29d6dad1701bd172eb74cfcb3"
+    },
+    "B_calibration_draws.npz": {
+      "AUC.npy": "3b413a115d837c50f282dba9bd21c078bd31ef8eda3e479ebaf798c22b147243",
+      "AP.npy": "3718de9f9070daea1beed78fda55916a05df2d84dce2b74af06acc1bce11b0cc",
+      "NDCG.npy": "54e66f21bac80caf43e86419c11adce92bdff43889ff913c2091a7181dcfec89",
+      "Recall@10.npy": "95815a5edef286e8fd7b723899d24ae610d042b55fa472cc0c2a0f5b692644e7"
+    }
+  }
+}
