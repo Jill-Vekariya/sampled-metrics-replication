@@ -39,10 +39,13 @@ required=['project_status.md','research_questions.md','protocol.md','source_ledg
 assert all((p/x).is_file() and (p/x).stat().st_size for x in required)
 assert all(f.stat().st_size>0 for f in files)
 assert not findings,findings
+declarations=json.loads((p/'publication/author_declarations.proposed.json').read_text())
 scan={'selected_files':len(files),'secret_pattern_findings':findings,'third_party_pdfs_included':False,
       'environment_directories_included':False,'git_directory_included':False,
-      'author_name_verified':True,'corresponding_email_verified':True,'author_declarations_pending':True,'public_release_authorized':False,
-      'caveat':'Pattern scanning is not a guarantee; the archive has not been publicly released.'}
+      'author_name_verified':True,'corresponding_email_verified':True,
+      'author_declarations_pending':not declarations['author_confirmation_received'],
+      'public_release_authorized':declarations['public_release_authorized'],
+      'caveat':'Pattern scanning is not a guarantee. See submission_status.md for actual release and journal status.'}
 (p/'audit/release_scan.json').write_text(json.dumps(scan,indent=2));files.append(p/'audit/release_scan.json')
 manifest={f.relative_to(p).as_posix():{'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()} for f in files}
 (p/'RELEASE_MANIFEST.json').write_text(json.dumps(manifest,indent=2));files.append(p/'RELEASE_MANIFEST.json')

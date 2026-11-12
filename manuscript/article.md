@@ -2,7 +2,7 @@
 
 A scoped replication of the IJCAI 2021 illustrative experiment
 
-Jill Vekariya. Independent researcher. Pre-submission draft.
+Jill Vekariya. Independent researcher. ReScience C replication manuscript.
 Correspondence: jillvekariya.10@gmail.com
 
 [Re] Ranking reversals under sampled recommendation metrics
@@ -11,7 +11,7 @@ A scoped replication of the IJCAI 2021 illustrative experiment
 
 **Jill Vekariya**
 
-Independent researcher | 12 November 2026 | Proposed venue: ReScience C
+Independent researcher | 12 November 2026 | ReScience C replication manuscript
 
 Correspondence: <link href="mailto:jillvekariya.10@gmail.com">jillvekariya.10@gmail.com</link>
 
@@ -123,9 +123,9 @@ Figure 3. Independent reconstruction of the source Figure 3 concept: expected sa
 
 ## Availability and declarations
 
-Code and data availability: the accompanying private review package includes the independent implementation, the attributed numerical fixture, results, figures, tests and reproduction instructions. The intended code repository is https://github.com/Jill-Vekariya/sampled-metrics-replication; public release awaits author authorization. No third-party article PDF or real-user dataset is included in the release archive. The intended code license is MIT; the manuscript is intended for CC BY 4.0, subject to author approval.
+Code and data availability: the accompanying research package includes the independent implementation, the attributed numerical fixture, results, figures, tests and reproduction instructions. Repository: https://github.com/Jill-Vekariya/sampled-metrics-replication. No third-party article PDF or real-user dataset is included in the release archive. The independent code is licensed under MIT and the manuscript under CC BY 4.0.
 
-ORCID status, competing-interest and funding declarations, contribution statement, and confirmation of journal eligibility remain for author verification. No declaration has been signed and no submission has occurred. AI assistance: ChatGPT generated and revised research code, performed tool-driven execution and audits, and drafted this manuscript. The described review passes are simulated AI assessments, not independent human peer review. An author must review and take responsibility for the final research and text.
+The author approved this manuscript and accepts responsibility for its contents, including the disclosed AI assistance. The author declares no competing interests and no external research funding, no simultaneous journal submission, and no close collaboration with the original authors. AI assistance: ChatGPT generated and revised research code, performed tool-driven execution and audits, and drafted this manuscript. The described review passes are simulated AI assessments, not independent human peer review.
 
 ## References
 

@@ -1,9 +1,7 @@
-# Resume publication
+# Complete authorized submission
 
-1. Research, release metadata, exact issue text and verification are complete. Read publication/PUBLICATION_REVIEW.md and author_declarations.proposed.json.
-2. Obtain and record the author's actual confirmation/corrections and the original final public-release/submission authorization checkpoint. Do not invent personal statements, signatures or ORCID.
-3. Use the existing authenticated GitHub CLI via Desktop Commander. The GitHub plugin was declined; do not suggest it. Repository creation has been verified successful and PRIVATE; do not create it again. Inspect current content/visibility before changes.
-4. Stage/verify the final release in the private repository. After actual author confirmation, apply only confirmed declarations, regenerate the manuscript, and verify package integrity.
-5. Make the approved repository public only after the final checkpoint. Check unauthenticated PDF, metadata and code URLs, submit publication/issue_body.md through the current ReScience workflow, read the issue back and record its real URL/status.
-
-No numerical rerun is needed. The scientific source, protocol, arrays and results match their recorded hashes. A fresh isolated Linux manuscript build passed. Acceptance/publication depends on the journal.
+1. Verify the final approved files and frozen evidence, then push the existing repository without force.
+2. Make the existing repository public under the confirmed authorization. Verify unauthenticated repository, PDF and metadata access.
+3. Check for a duplicate and submit the exact publication/issue_body.md to ReScience/submissions once.
+4. Read the official issue back and record the actual URL and state. An open issue means submitted and awaiting editorial handling; it does not mean accepted or published.
+5. Save the final manuscript and research package, including the submission receipt. Future editorial responses require actual journal comments.

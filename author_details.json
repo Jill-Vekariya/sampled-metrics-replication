@@ -5,7 +5,8 @@
   "affiliation_source": "original user research instructions",
   "corresponding_email": "jillvekariya.10@gmail.com",
   "orcid_status": null,
-  "author_declarations": "pending",
-  "public_release_authorization": false,
-  "email_source": "explicit user confirmation in this conversation"
+  "author_declarations": "confirmed in conversation on 2026-11-12",
+  "public_release_authorization": true,
+  "email_source": "explicit user confirmation in this conversation",
+  "confirmation_record": "publication/author_declarations.proposed.json"
 }

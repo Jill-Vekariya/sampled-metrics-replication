@@ -1,6 +1,6 @@
 # Ranking reversals under sampled recommendation metrics
 
-Status: **AWAITING PUBLICATION AUTHORIZATION**. Research and release preparation are complete; author confirmation/access recovery are pending. Not submitted or peer reviewed.
+Status: **AUTHORIZED RELEASE IN PREPARATION**. Research and reproduction checks are complete. Journal submission has not yet occurred.
 
 This is an independent, scoped computational replication of Tables 1-2 and the expectation-curve findings in Krichene and Rendle, *On Sampled Metrics for Item Recommendation (Extended Abstract)*, IJCAI 2021, pp.4784-4788, DOI [10.24963/ijcai.2021/651](https://doi.org/10.24963/ijcai.2021/651).
 
@@ -63,7 +63,7 @@ Run these with the chosen virtual environment's Python. The builder reads archiv
 | `experiment_registry.csv`, `logs/`, root `*.log` | Batch provenance, tests, failures and execution logs |
 | `source_ledger.md`, `audit/atlas_assessment.md` | Source verification, initial target decision and Atlas inspection |
 | `figures/final/` | Three figures in editable-by-code PDF and PNG form |
-| `manuscript/` | PDF draft, readable source, metadata, bibliography and fonts |
+| `manuscript/` | Article PDF, readable source, metadata, bibliography and fonts |
 | `audit_results.md`, `blockers.md`, `NEXT_ACTION.md` | Current audit and precise resumption state |
 
 Windows NPZ archives in this package were repackaged using Linux archive containers after every uncompressed NPY member was verified byte-for-byte against the Windows member SHA256 values. Array contents are identical; archive-container hashes can differ by OS/compression implementation. The original container checksums are preserved in `draw_checksums.json`. The full original Windows files remain on the user's computer.
@@ -76,14 +76,14 @@ The source's three-decimal AP tie between A and B is a rounding tie: unrounded B
 
 ## Release and authorship
 
-No public-release command has been executed, no issue submitted, and no declaration signed. The private repository was created successfully and its PRIVATE visibility was verified; nothing is public. The user confirmed the author name as Jill Vekariya; independent-researcher status was supplied in the original instructions. Corresponding email is confirmed as jillvekariya.10@gmail.com. ORCID may be added if held; conflicts, author responsibility and final permission to publish remain to be confirmed. The computer's authenticated GitHub CLI separately identified Jill-Vekariya. No author data is inferred from the GitHub username. AI assistance is explicitly disclosed in the draft. The internal audits are simulated AI reviews, not external peer review.
+Author: Jill Vekariya, Independent researcher. Correspondence: jillvekariya.10@gmail.com. The author confirmed review and responsibility, no competing interests, no simultaneous journal submission and no close collaboration with the original authors, and authorized public release and submission on 12 November 2026. The original instructions report no external research funding. ORCID was not supplied and remains blank. The confirmation record is in `publication/author_declarations.proposed.json`; its filename is retained for provenance, and its status is now confirmed.
 
-Code: MIT (see LICENSE). Manuscript: intended CC BY 4.0 upon authorized release. Dependencies and bundled fonts retain their own licenses. Third-party scientific PDFs, downloaded Atlas code, credentials and Python environments are excluded from the review ZIP.
+ChatGPT generated and revised code, conducted tool-driven execution and analysis, and drafted the manuscript. The author accepts responsibility for the approved work. Internal audits are simulated AI assessments, not independent human peer review.
 
-## Final publication preparation
+Code: MIT (see LICENSE). Manuscript: CC BY 4.0. Dependencies and bundled fonts retain their own licenses. Third-party scientific PDFs, downloaded Atlas code, credentials and Python environments are excluded from the research package.
 
-The current ReScience issue form and mandatory YAML schema were rechecked. `publication/issue_body.md` is the exact prepared request; its URLs are intended publication targets and are not yet publicly verified. `publication/PUBLICATION_REVIEW.md` summarizes the concrete release and proposed author declarations. `verify_release.py --manifest` checks the packaged evidence and hashes without rerunning experiments; `--public` additionally requires actual confirmation/authorization.
+## Release verification
 
-A fresh isolated Linux environment installed requirements-manuscript.txt and compiled the complete PDF; the record is in publication/manuscript_build_reproduction.json. The saved study source and all results remain unchanged. The computer's latest metadata edits were compiled successfully before its connection stopped responding; the prepared release has now been staged in the verified PRIVATE GitHub repository. The downloadable review package is the current complete checkpoint.
+`publication/issue_body.md` contains the exact journal request. See `submission_status.md` for the actual submission state and official URL when available. An open submission issue does not establish acceptance, publication or assigned peer review.
 
-The release verifier reads YAML metadata. Install `requirements-manuscript.txt` before `python verify_release.py --manifest`; the numerical tests and experiments alone require `requirements.txt`. The private staging checkout preserves file bytes and line endings for the manifest checks.
+The release verifier reads YAML metadata. Install `requirements-manuscript.txt`, then run `python verify_release.py --public --manifest`. It checks the frozen scientific evidence, author/contact metadata, authorization and package hashes without rerunning the experiments. A fresh clone of the scientific snapshot passed all 40 tests, manifest checks and manuscript compilation. The numerical source, inputs and results remain unchanged.

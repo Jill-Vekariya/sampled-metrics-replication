@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Draft research software. Publication and public-release authorization are pending."
+message: "If you use this replication software or its results, cite this repository."
 type: software
 title: "Ranking reversals under sampled recommendation metrics"
 authors:

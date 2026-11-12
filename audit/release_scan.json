@@ -6,7 +6,7 @@
   "git_directory_included": false,
   "author_name_verified": true,
   "corresponding_email_verified": true,
-  "author_declarations_pending": true,
-  "public_release_authorized": false,
-  "caveat": "Pattern scanning is not a guarantee; the archive has not been publicly released."
+  "author_declarations_pending": false,
+  "public_release_authorized": true,
+  "caveat": "Pattern scanning is not a guarantee. See submission_status.md for actual release and journal status."
 }

@@ -1,19 +1,9 @@
 # Submission status
-AWAITING PUBLICATION AUTHORIZATION
+AUTHORIZED; FINAL PUBLIC RELEASE AND JOURNAL SUBMISSION IN PROGRESS
 
-Preparation is complete; no journal submission, assigned peer review, acceptance or publication exists for this work. No public-release command was executed. The private repository was created successfully and its PRIVATE visibility was verified. Content staging is in progress. See publication/repository_attempt.json.
+The user authorized public release and ReScience C submission on 12 November 2026. The current official form was checked again and no existing issue by this author was found. The exact issue text is publication/issue_body.md.
 
-Journal destination: https://github.com/ReScience/submissions/issues/new/choose
-Current issue form, metadata template, scope, FAQ and editorial board checked on 12 November 2026. Form and template match the earlier audit. The form accepts full or partial replications and requires original article, PDF URL, metadata URL, code URL, domain and language; suggested editor is optional. ReScience's FAQ reports no author publication fee.
+Repository: https://github.com/Jill-Vekariya/sampled-metrics-replication
+Journal: https://github.com/ReScience/submissions
 
-Exact issue text: publication/issue_body.md
-Intended repository: https://github.com/Jill-Vekariya/sampled-metrics-replication
-Intended PDF: https://raw.githubusercontent.com/Jill-Vekariya/sampled-metrics-replication/main/manuscript/article.pdf
-Intended metadata: https://raw.githubusercontent.com/Jill-Vekariya/sampled-metrics-replication/main/manuscript/metadata.yaml
-These are prepared target URLs, not verified public downloads.
-
-Author and contact are confirmed. Proposed personal declarations remain unconfirmed; final public release/submission authorization remains at the checkpoint reserved in the original instructions. No ORCID or author attestation is invented.
-
-Resume publication/PUBLISH_AFTER_APPROVAL.md after author confirmation and access recovery. Record an actual journal issue URL only after the official system confirms it.
-
-Private staging completed and was verified: commit 93b8ef8c8aad9e851e7aef6c3249cd674466fef3, main, 123 tracked files. Final public URL checks and journal submission still await the reserved author checkpoint.
+Do not mark submitted until the official issue has been created and read back. Acceptance, publication, assigned editor/reviewers and journal DOI remain unassigned. The original article DOI is a citation, not a DOI for this replication.

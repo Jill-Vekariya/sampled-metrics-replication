@@ -47,7 +47,7 @@ def main():
     styles.add(ParagraphStyle('Small2',fontName='Sans',fontSize=8.5,leading=11.5,spaceAfter=7))
     styles.add(ParagraphStyle('Cell',fontName='Sans',fontSize=8.2,leading=10.6))
     styles.add(ParagraphStyle('Code2',fontName='Mono',fontSize=7.9,leading=11,spaceAfter=8))
-    story=[]; md=['# '+TITLE,'',SUBTITLE,'',AUTHOR+'. Independent researcher. Pre-submission draft.','Correspondence: '+EMAIL,'']
+    story=[]; md=['# '+TITLE,'',SUBTITLE,'',AUTHOR+'. Independent researcher. ReScience C replication manuscript.','Correspondence: '+EMAIL,'']
     def text(value,style='Text'):
         story.append(Paragraph(value,styles[style]));md.extend([value.replace('<b>','**').replace('</b>','**').replace('<i>','*').replace('</i>','*'),''])
     def head(value): text(value,'Head');md[-2]='## '+md[-2]
@@ -80,7 +80,7 @@ def main():
         "rank correction. The evidence concerns a designed five-instance example, not trained models or real users.")
     text(TITLE,'Title2');text(SUBTITLE,'Sub')
     text('<b>'+AUTHOR+'</b>','Sub')
-    text('Independent researcher | 12 November 2026 | Proposed venue: ReScience C','Small2')
+    text('Independent researcher | 12 November 2026 | ReScience C replication manuscript','Small2')
     text('Correspondence: <link href="mailto:'+EMAIL+'">'+EMAIL+'</link>','Small2')
     head('Abstract');text(abstract)
     text('<b>Keywords:</b> recommender evaluation; sampled metrics; partial replication; Python','Small2')
@@ -211,18 +211,17 @@ def main():
     head('Appendix. Metric-shape verification')
     figure('metric_shape.png','Figure 3. Independent reconstruction of the source Figure 3 concept: expected sampled metrics against full-catalogue rank, shown through rank 1000 of n=10000. Values are evaluated on the frozen grid.',326)
     head('Availability and declarations')
-    text("Code and data availability: the accompanying private review package includes the independent "
+    text("Code and data availability: the accompanying research package includes the independent "
          "implementation, the attributed numerical fixture, results, figures, tests and reproduction instructions. "
-         "The intended code repository is "+CODE_URL+"; public release awaits author authorization. "
+         "Repository: "+CODE_URL+". "
          "No third-party article PDF or real-user dataset is included "
-         "in the release archive. The intended code license is MIT; the manuscript is intended for CC BY 4.0, "
-         "subject to author approval.",'Small2')
-    text("ORCID status, competing-interest and funding declarations, "
-         "contribution statement, and confirmation of journal eligibility remain for author verification. "
-         "No declaration has been signed and no submission has occurred. AI assistance: ChatGPT generated "
+         "in the release archive. The independent code is licensed under MIT and the manuscript under CC BY 4.0.",'Small2')
+    text("The author approved this manuscript and accepts responsibility for its contents, including the "
+         "disclosed AI assistance. The author declares no competing interests and no external research "
+         "funding, no simultaneous journal submission, and no close collaboration with the original authors. "
+         "AI assistance: ChatGPT generated "
          "and revised research code, performed tool-driven execution and audits, and drafted this manuscript. "
-         "The described review passes are simulated AI assessments, not independent human peer review. "
-         "An author must review and take responsibility for the final research and text.",'Small2')
+         "The described review passes are simulated AI assessments, not independent human peer review.",'Small2')
     head('References')
     refs=[
       '[1] W. Krichene and S. Rendle. On Sampled Metrics for Item Recommendation (Extended Abstract). Proceedings of IJCAI 2021, pp. 4784-4788. DOI: 10.24963/ijcai.2021/651. Primary replication target.',
@@ -233,9 +232,9 @@ def main():
         c.setFillColor(colors.HexColor('#a52832'));c.rect(0,A4[1]-46,252,22,fill=1,stroke=0)
         c.setFillColor(colors.white);c.setFont('SansBold',8.5);c.drawString(68,A4[1]-38,'COMPUTATIONAL REPLICATION')
         c.setFillColor(colors.HexColor('#68727b'));c.setFont('Sans',7.4)
-        c.drawRightString(A4[0]-54,A4[1]-36,'PRE-SUBMISSION DRAFT')
+        c.drawRightString(A4[0]-54,A4[1]-36,'REPLICATION MANUSCRIPT')
         c.setStrokeColor(colors.HexColor('#c5cbd0'));c.line(70,42,A4[0]-54,42)
-        c.drawString(70,29,AUTHOR+' - pre-submission draft; not under review')
+        c.drawString(70,29,AUTHOR+' - ReScience C replication manuscript')
         c.drawRightString(A4[0]-54,29,str(doc.page))
     doc=SimpleDocTemplate(str(out/'article.pdf'),pagesize=A4,leftMargin=70,rightMargin=54,
                           topMargin=62,bottomMargin=57,title=TITLE,author=AUTHOR)
@@ -260,7 +259,7 @@ def main():
     yaml.SafeDumper.add_representer(QuotedAbstract, lambda dumper,value:
         dumper.represent_scalar('tag:yaml.org,2002:str',value,style='"'))
     metadata['abstract'] = QuotedAbstract(abstract)
-    (out/'metadata.yaml').write_text('# Release candidate: author declarations and public visibility await confirmation.\n'+
+    (out/'metadata.yaml').write_text('# Author-approved replication manuscript. Editorial fields await the journal.\n'+
                                     yaml.safe_dump(metadata,sort_keys=False,allow_unicode=True),encoding='utf-8')
     print('Compiled',out/'article.pdf')
 
