@@ -8,6 +8,12 @@ from scipy.stats import binom, hypergeom
 METRICS = ("AUC", "AP", "NDCG", "Recall@10")
 
 
+def _validate_integer(value, name, minimum):
+    if (not isinstance(value, (int, np.integer))
+            or isinstance(value, (bool, np.bool_)) or value < minimum):
+        raise ValueError(f"{name} must be an integer >= {minimum}")
+
+
 def validate_ranks(ranks, n):
     r = np.asarray(ranks)
     if not isinstance(n, (int, np.integer)) or isinstance(n, bool) or n < 2:
@@ -34,8 +40,7 @@ def metric(ranks, n, name):
 
 def distribution(ranks, n, m, mode="with_replacement"):
     r = validate_ranks(ranks, n).reshape(-1)
-    if not isinstance(m, (int, np.integer)) or isinstance(m, bool) or m < 1:
-        raise ValueError("m must be an integer >=1")
+    _validate_integer(m, "m", 1)
     if mode == "without_replacement" and m > n - 1:
         raise ValueError("cannot draw more distinct negatives than available")
     k = np.arange(m + 1)
@@ -70,8 +75,8 @@ def macro_moments(ranks, n, m, name, mode="with_replacement", correction=False):
 
 def monte_carlo(ranks, n, m, repetitions, seed, mode="with_replacement"):
     r = validate_ranks(ranks, n).reshape(-1)
-    if repetitions < 2:
-        raise ValueError("at least two repetitions required")
+    _validate_integer(m, "m", 1)
+    _validate_integer(repetitions, "repetitions", 2)
     rng = np.random.default_rng(seed)
     if mode == "with_replacement":
         k = rng.binomial(m, (r - 1) / (n - 1), (repetitions, len(r)))
@@ -90,7 +95,9 @@ def draw_rank_from_catalogue(rank, n, m, rng, replace=True, repetitions=1):
     repeatedly under replacement, as required by the binomial protocol.
     """
     validate_ranks([rank], n)
-    if not isinstance(m, int) or m < 1 or (not replace and m > n - 1):
+    _validate_integer(m, "m", 1)
+    _validate_integer(repetitions, "repetitions", 1)
+    if not replace and m > n - 1:
         raise ValueError("invalid number of negative draws")
     if replace:
         draws = rng.integers(0, n - 1, size=(repetitions, m))
