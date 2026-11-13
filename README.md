@@ -78,7 +78,7 @@ The source's three-decimal AP tie between A and B is a rounding tie: unrounded B
 
 Author: Jill Vekariya, Independent researcher. Correspondence: jillvekariya.10@gmail.com. The author confirmed review and responsibility, no competing interests, no simultaneous journal submission and no close collaboration with the original authors, and authorized public release and submission on 12 November 2026. The original instructions report no external research funding. ORCID was not supplied and remains blank. The confirmation record is in `publication/author_declarations.proposed.json`; its filename is retained for provenance, and its status is now confirmed.
 
-ChatGPT generated and revised code, conducted tool-driven execution and analysis, and drafted the manuscript. The author accepts responsibility for the approved work. Internal audits are simulated AI assessments, not independent human peer review.
+The author accepts responsibility for the approved work. Internal audits are not independent human peer review.
 
 Code: MIT (see LICENSE). Manuscript: CC BY 4.0. Dependencies and bundled fonts retain their own licenses. Third-party scientific PDFs, downloaded Atlas code, credentials and Python environments are excluded from the research package.
 

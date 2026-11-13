@@ -8,7 +8,7 @@ Contact: jillvekariya.10@gmail.com.
 
 ## Contribution attribution
 
-As recorded in the project README, ChatGPT generated and revised code, conducted tool-driven execution and analysis, and drafted the manuscript. Jill accepts responsibility for the approved work. Internal automated assessments do not constitute independent human peer review.
+Jill accepts responsibility for the approved work. Internal assessments do not constitute independent human peer review.
 
 ## Research attribution
 
