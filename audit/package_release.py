@@ -1,6 +1,11 @@
 from pathlib import Path
 import json,re,hashlib,zipfile,argparse
 p=Path(__file__).resolve().parents[1]
+
+def write_json(path, value):
+ newline='\r\n' if path.exists() and b'\r\n' in path.read_bytes() else '\n'
+ path.write_bytes(json.dumps(value,indent=2).replace('\n',newline).encode('utf-8'))
+
 parser=argparse.ArgumentParser()
 parser.add_argument('--output',help='Output ZIP path, relative to the project directory unless absolute')
 args=parser.parse_args()
@@ -18,6 +23,8 @@ for name in ['atlas_assessment.md','dependency_metadata.json','manuscript_consis
  files.append(p/'audit'/name)
 files.append(p/'audit/current_venue/refresh_report.json')
 files.append(p/'audit/package_release.py')
+files.extend((p/'audit/source_snapshot').rglob('*'))
+files.extend(p/'audit'/name for name in ['original_release_manifest.json','source_validation.json'])
 files=list(dict.fromkeys(f for f in files if f.is_file()))
 patterns={
 'private_key':r'-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----',
@@ -46,9 +53,13 @@ scan={'selected_files':len(files),'secret_pattern_findings':findings,'third_part
       'author_declarations_pending':not declarations['author_confirmation_received'],
       'public_release_authorized':declarations['public_release_authorized'],
       'caveat':'Pattern scanning is not a guarantee. See submission_status.md for actual release and journal status.'}
-(p/'audit/release_scan.json').write_text(json.dumps(scan,indent=2));files.append(p/'audit/release_scan.json')
+write_json(p/'audit/release_scan.json',scan);files.append(p/'audit/release_scan.json')
 manifest={f.relative_to(p).as_posix():{'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()} for f in files}
-(p/'RELEASE_MANIFEST.json').write_text(json.dumps(manifest,indent=2));files.append(p/'RELEASE_MANIFEST.json')
+manifest_path=p/'RELEASE_MANIFEST.json'
+previous=json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
+ordered={name:manifest[name] for name in previous if name in manifest}
+ordered.update((name,manifest[name]) for name in sorted(manifest) if name not in ordered)
+write_json(manifest_path,ordered);files.append(manifest_path)
 archive=(p/args.output) if args.output else p.parent/'Sampled_Metrics_Research_Review_Package.zip'
 archive.parent.mkdir(parents=True,exist_ok=True)
 with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,strict_timestamps=False) as z:

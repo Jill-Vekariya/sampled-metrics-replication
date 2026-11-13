@@ -86,4 +86,12 @@ Code: MIT (see LICENSE). Manuscript: CC BY 4.0. Dependencies and bundled fonts r
 
 `publication/issue_body.md` contains the exact journal request. See `submission_status.md` for the actual submission state and official URL when available. An open submission issue does not establish acceptance, publication or assigned peer review.
 
-The release verifier reads YAML metadata. Install `requirements-manuscript.txt`, then run `python verify_release.py --public --manifest`. It checks the frozen scientific evidence, author/contact metadata, authorization and package hashes without rerunning the experiments. A fresh clone of the scientific snapshot passed all 40 tests, manifest checks and manuscript compilation. The numerical source, inputs and results remain unchanged.
+The release verifier reads YAML metadata. Install `requirements-manuscript.txt`, then run `python verify_release.py --public --manifest`. It checks the frozen scientific evidence, author/contact metadata, authorization and package hashes without rerunning the experiments. A fresh clone of the scientific snapshot passed all 40 tests, manifest checks and manuscript compilation. The frozen inputs and archived results remain unchanged. Later input-validation maintenance is verified by a separate current-source rerun; see the provenance notes below.
+
+## Source provenance after maintenance
+
+The original experiment hashes describe the source used for the archived Windows run. That exact source is retained in `audit/source_snapshot/`, verified against the original hashes. The previous package manifest is preserved as `audit/original_release_manifest.json`.
+
+`results/release-validation/` contains a separate run of the maintained numerical source. Its summary records the current source hashes and actual environment; it reproduces the archived primary results and all 1104 sensitivity means and variances within 1e-12. Near-zero SD values can amplify floating-point cancellation, so their maximum absolute difference is recorded separately. All 24 newly generated array members were compared byte-for-byte with the unchanged original archives. `audit/source_validation.json` records the comparison and source-snapshot recovery method. This is a new maintenance validation, not a change to the original execution record or a new journal submission.
+
+`python verify_release.py --public --manifest` checks the archived source snapshot, the maintained source hashes, the new result comparison, and the current package manifest. The standard CI workflow also runs this command.
