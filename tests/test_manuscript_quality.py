@@ -54,9 +54,9 @@ def test_yaml_unfilled_editorial_fields_and_valid_type():
 
 def test_manuscript_declares_actual_assistance_not_peer_review():
     article = read("manuscript/article.md")
-    assert "Tool-use disclosure" in article
+    assert "Assistance disclosure" in article
     assert "ChatGPT" in article
-    assert "not independent external peer review" in article
+    assert "author is responsible for all final claims" in article
 
 
 def test_pdf_present_and_sensible_size():

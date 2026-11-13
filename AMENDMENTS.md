@@ -1,5 +1,12 @@
 # Post-submission amendment record
 
+## 14 November 2026 - Journal-template styling and stronger scope evidence
+
+- Compared the current official ReScience C template at commit `0978d0e` (`rescience.cls` and `header.tex`) and an existing published journal article. Adapted the manuscript build to its A4 geometry, dark-red journal tag, flush-left typography, gray section numbers, figure aspect ratios, column width and caption grouping. See `manuscript/TEMPLATE_ADAPTATION.md` for explicit matches and limitations.
+- Added an in-paper table linking source Table 1, Table 2, Figures 2-3 and an AUC invariant to specific independent checks and observed agreements. These are replication-fidelity claims, not a new trained-model experiment.
+- Simplified redundant status wording in the repository entrypoint and refreshed the reviewer guide's CI description. The submitted article retains a single accurate assistance disclosure and author responsibility statement; historical evidence has not been falsified.
+- Regenerated the seven-page PDF and readable Markdown. Scientific input, source snapshots and frozen numerical results are unchanged.
+
 ## 14 November 2026 - Reviewer-readiness and manuscript-quality corrections
 
 - Corrected all known mojibake sequences in the executable manuscript builder and regenerated Markdown/PDF: mathematical inequality (≤), standard deviation (±), square root (√), and scientific-notation multiplication (×). A static test now fails if those corrupted sequences reappear.

@@ -1,6 +1,6 @@
 # Ranking reversals under sampled recommendation metrics
 
-Status: **SUBMITTED - AWAITING EDITORIAL HANDLING**. [Official ReScience C submission #158](https://github.com/ReScience/submissions/issues/158). Research, public release and initial submission are complete. Acceptance and publication remain journal decisions.
+Submitted to ReScience C as [Issue #158](https://github.com/ReScience/submissions/issues/158) on 12 November 2026. The issue is a submission record, not a claim of acceptance or publication.
 
 This is an independent, scoped computational replication of Tables 1-2 and the expectation-curve findings in Krichene and Rendle, *On Sampled Metrics for Item Recommendation (Extended Abstract)*, IJCAI 2021, pp.4784-4788, DOI [10.24963/ijcai.2021/651](https://doi.org/10.24963/ijcai.2021/651).
 

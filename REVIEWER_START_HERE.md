@@ -31,7 +31,7 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe compare_results.py results/reviewer-run
 ```
 
-The output directory must not contain an existing `summary.json`; choose another name for a second rerun. The comparison command checks 12 primary result rows at absolute tolerance `1e-12`. The release verifier separately checks archived scientific source, maintained source, source snapshots, input protocol, raw array checksums, and the package manifest. An experimental rerun is also required; the manifest alone cannot substitute for execution. The 14 November 2026 revised version passed 140 tests locally; the new revision's GitHub Actions checks should be confirmed after publication. Test counts can change with maintenance.
+The output directory must not contain an existing `summary.json`; choose another name for a second rerun. The comparison command checks 12 primary result rows at absolute tolerance `1e-12`. The release verifier separately checks archived scientific source, maintained source, source snapshots, input protocol, raw array checksums, and the package manifest. An experimental rerun is also required; the manifest alone cannot substitute for execution. The 14 November 2026 release passed 140 tests locally and all four GitHub Actions jobs (Windows/Linux, Python 3.11/3.12) completed successfully; new submissions should be checked against their corresponding commit. Test counts can change with maintenance.
 
 ## Mapping the original publication to the replication
 

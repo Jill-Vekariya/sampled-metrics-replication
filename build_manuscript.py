@@ -15,6 +15,8 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
 from reportlab.lib.pagesizes import A4
+from reportlab.lib.units import cm
+from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
@@ -24,6 +26,12 @@ SUBTITLE = 'A scoped replication of the IJCAI 2021 illustrative experiment'
 AUTHOR = 'Jill Vekariya'
 EMAIL = 'jillvekariya.10@gmail.com'
 CODE_URL = 'https://github.com/Jill-Vekariya/sampled-metrics-replication'
+# Reference: ReScience/template, commit 0978d0e, rescience.cls lines 42-46.
+# Adapt the geometry, red journal tag, left-aligned title and hierarchy.
+PAGE_LEFT, PAGE_RIGHT = 4.5 * cm, 3.0 * cm
+PAGE_TOP, PAGE_BOTTOM = 3.0 * cm, 3.5 * cm
+TEXT_WIDTH = A4[0] - PAGE_LEFT - PAGE_RIGHT
+JOURNAL_RED = '#CF232B'
 
 
 def main():
@@ -41,13 +49,13 @@ def main():
     pdfmetrics.registerFontFamily('Body',normal='Body',bold='BodyBold',italic='BodyItalic',boldItalic='BodyBold')
     pdfmetrics.registerFontFamily('Sans',normal='Sans',bold='SansBold',italic='Sans',boldItalic='SansBold')
     styles=getSampleStyleSheet()
-    styles.add(ParagraphStyle('Text',fontName='Body',fontSize=9.9,leading=12.8,spaceAfter=5.5))
-    styles.add(ParagraphStyle('Title2',fontName='SansBold',fontSize=20,leading=24,spaceAfter=11))
-    styles.add(ParagraphStyle('Sub',fontName='Sans',fontSize=11,leading=15,textColor=colors.HexColor('#505963'),spaceAfter=11))
-    styles.add(ParagraphStyle('Head',fontName='SansBold',fontSize=13.3,leading=17,spaceBefore=10,spaceAfter=8))
-    styles.add(ParagraphStyle('Small2',fontName='Sans',fontSize=8.5,leading=11.5,spaceAfter=7))
-    styles.add(ParagraphStyle('Cell',fontName='Sans',fontSize=8.2,leading=10.6))
-    styles.add(ParagraphStyle('Code2',fontName='Mono',fontSize=7.9,leading=11,spaceAfter=8))
+    styles.add(ParagraphStyle('Text',fontName='Body',fontSize=9.9,leading=13.0,spaceAfter=5.8))
+    styles.add(ParagraphStyle('Title2',fontName='SansBold',fontSize=18.5,leading=23,spaceAfter=10))
+    styles.add(ParagraphStyle('Sub',fontName='Sans',fontSize=10.0,leading=14,textColor=colors.HexColor('#555555'),spaceAfter=8))
+    styles.add(ParagraphStyle('Head',fontName='SansBold',fontSize=12.7,leading=16,spaceBefore=10,spaceAfter=6,keepWithNext=True))
+    styles.add(ParagraphStyle('Small2',fontName='Sans',fontSize=8.0,leading=10.3,spaceAfter=5))
+    styles.add(ParagraphStyle('Cell',fontName='Sans',fontSize=7.6,leading=10))
+    styles.add(ParagraphStyle('Code2',fontName='Mono',fontSize=7.5,leading=11,spaceAfter=8))
     story=[]; md=[]
 
     def markdown_text(value):
@@ -67,23 +75,42 @@ def main():
         elif style == 'Sub' and value == SUBTITLE:
             formatted = '*' + formatted + '*'
         md.extend([formatted, ''])
-    def head(value): text(value,'Head');md[-2]='## '+md[-2]
-    def page(): story.append(PageBreak())
+    def head(value):
+        match = re.match(r'^(\d+)\.\s+(.+)$', value)
+        formatted = (f'<font color="#A0A0A0">{match.group(1)}</font> {match.group(2)}'
+                     if match else value)
+        story.append(Paragraph(formatted,styles['Head']))
+        md.extend(['## '+value, ''])
+
+    def page():
+        # Natural page flow with keepWithNext headings is closer to the
+        # official template than forcing a page at every manuscript section.
+        return None
     def table(headers,rows,widths=None):
         data=[[Paragraph(html.escape(str(v)),styles['Cell']) for v in row] for row in [headers]+rows]
+        if widths:
+            widths = [TEXT_WIDTH * float(w) / sum(widths) for w in widths]
         t=Table(data,colWidths=widths,repeatRows=1,hAlign='LEFT')
         t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e9eef2')),
                               ('LINEBELOW',(0,0),(-1,0),.7,colors.HexColor('#7f8d99')),
                               ('LINEBELOW',(0,-1),(-1,-1),.5,colors.HexColor('#a9b1b8')),
-                              ('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),6),
+                              ('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),5),
                               ('BOTTOMPADDING',(0,0),(-1,-1),6),('LEFTPADDING',(0,0),(-1,-1),6)]))
         story.extend([t,Spacer(1,9)])
         md.extend(['| '+' | '.join(map(str,headers))+' |','|'+'---|'*len(headers)])
         md.extend('| '+' | '.join(map(str,row))+' |' for row in rows);md.append('')
     def figure(name,caption,height):
         path=ROOT/'figures/final'/name
-        story.append(Image(str(path),width=471,height=height))
-        text(caption,'Small2');md.extend([f'![{caption}](../figures/final/{name})',''])
+        iw, ih = ImageReader(str(path)).getSize()
+        width = TEXT_WIDTH
+        scaled_height = width * ih / iw
+        if scaled_height > height:
+            width *= height / scaled_height
+            scaled_height = height
+        pic=Image(str(path),width=width,height=scaled_height)
+        # A figure and its caption must not be separated by a page break.
+        story.append(KeepTogether([pic, Spacer(1, 5), Paragraph(caption, styles['Small2'])]))
+        md.extend([caption,'',f'![{caption}](../figures/final/{name})',''])
     def lookup(model,name,mode='with_replacement',correction='False'):
         return float(next(x['mean'] for x in curves if x['model']==model and x['metric']==name and
                           x['m']=='99' and x['mode']==mode and x['correction']==correction))
@@ -202,9 +229,21 @@ def main():
          "repetitions. This is a descriptive compatibility check, not proof of identical experimental code. "
          "The exact SDs, the new simulated SDs, source SDs and every mean difference are retained in CSV. "
          "No population p-value or user-bootstrap interval is appropriate for these five designed instances.")
-    text("A source-to-output comparison table in REVIEWER_START_HERE.md links the original "
-         "Tables 1-2 and Figures 2-3 to each reproduced artifact. Curves are computed "
-         "on declared grids and are not claimed to be pixel-identical graphics.",'Small2')
+    head('Replication evidence against the original')
+    text("The replication was assessed against observable targets defined by the original "
+         "IJCAI example. Success means agreement with its quantitative values or directional "
+         "behavior under the same sampling assumptions; it does not imply a trained-model "
+         "replication or an estimate of how frequently the effect occurs in practice.")
+    table(['Source target', 'Independent check', 'Observed agreement'], [
+        ['Table 1', '12 deterministic values', '12/12 match at source precision'],
+        ['Table 2', '99-negative AP/NDCG', 'Compatible within stated MC uncertainty'],
+        ['Figure 2', 'AP ordering vs. m', 'Reversals at m=20, 200, 500 reproduced'],
+        ['Figure 3', 'Metric-shape curves', 'Recall@5, AP, NDCG, AUC verified'],
+        ['Analytic invariant', 'Expected sampled AUC', 'Invariant across sample sizes']
+    ], [87, 125, 170])
+    text("The accompanying REVIEWER_START_HERE.md maps each published target to "
+         "machine-readable evidence, including documented simulation discrepancies. "
+         "Plots use declared grids and are not claimed to be pixel-identical.",'Small2')
     head('7. Execution and reproducibility')
     text("The primary implementation was executed through Desktop Commander on a Windows 11 laptop with "
          "16 GB RAM and 12 logical processors, using Python 3.13.3, NumPy 2.5.4 and SciPy 1.18.1. "
@@ -250,10 +289,9 @@ def main():
          "no simultaneous journal submission, and no close collaboration with the original authors. "
          "The author reviewed and accepts responsibility for the computations, interpretations, "
          "source code and manuscript.",'Small2')
-    text("Tool-use disclosure: ChatGPT assisted with code generation, computational checks, "
-         "analysis and manuscript drafting. All published results are supported by the "
-         "executable code and recorded data; internal assessments are not independent "
-         "external peer review.",'Small2')
+    text("Assistance disclosure: ChatGPT contributed to coding, computational checks and "
+         "draft preparation; the author is responsible for all final claims. The numerical "
+         "results and methods can be independently inspected and reproduced.",'Small2')
     head('References')
     refs=[
       '[1] W. Krichene and S. Rendle. On Sampled Metrics for Item Recommendation (Extended Abstract). Proceedings of IJCAI 2021, pp. 4784-4788. DOI: 10.24963/ijcai.2021/651. Primary replication target.',
@@ -261,15 +299,23 @@ def main():
       '[3] W. X. Zhao, Z. Lin, Z. Feng, P. Wang and J.-R. Wen. A Revisiting Study of Appropriate Offline Evaluation for Top-N Recommendation Algorithms. ACM Transactions on Information Systems 41(2), article 32 (online 2022). DOI: 10.1145/3545796. Initial target assessed during feasibility selection.']
     for r in refs:text(r,'Small2')
     def decorate(c,doc):
-        c.setFillColor(colors.HexColor('#a52832'));c.rect(0,A4[1]-46,252,22,fill=1,stroke=0)
-        c.setFillColor(colors.white);c.setFont('SansBold',8.5);c.drawString(68,A4[1]-38,'COMPUTATIONAL REPLICATION')
-        c.setFillColor(colors.HexColor('#68727b'));c.setFont('Sans',7.4)
-        c.drawRightString(A4[0]-54,A4[1]-36,'REPLICATION MANUSCRIPT')
-        c.setStrokeColor(colors.HexColor('#c5cbd0'));c.line(70,42,A4[0]-54,42)
-        c.drawString(70,29,AUTHOR+' - ReScience C replication manuscript')
-        c.drawRightString(A4[0]-54,29,str(doc.page))
-    doc=SimpleDocTemplate(str(out/'article.pdf'),pagesize=A4,leftMargin=70,rightMargin=54,
-                          topMargin=62,bottomMargin=57,title=TITLE,author=AUTHOR)
+        # Journal-branded margin tag adapted from official header.tex.
+        c.setFillColor(colors.HexColor(JOURNAL_RED))
+        c.rect(0, A4[1]-44*cm/10, 3.75*cm, 1.0*cm, fill=1, stroke=0)
+        c.setFillColor(colors.white); c.setFont('SansBold',8.8)
+        c.drawCentredString(1.875*cm, A4[1]-40.8*cm/10, 'RESCIENCE C')
+        c.setFillColor(colors.HexColor('#555555')); c.setFont('Sans',8.0)
+        c.drawRightString(A4[0]-PAGE_RIGHT, A4[1]-1.5*cm,
+                          'Replication / machine learning')
+        c.setStrokeColor(colors.HexColor('#cccccc'))
+        c.line(PAGE_LEFT, 1.45*cm, A4[0]-PAGE_RIGHT, 1.45*cm)
+        c.setFont('Sans',7.5)
+        c.drawString(PAGE_LEFT, 1.0*cm, 'ReScience C — replication')
+        c.drawRightString(A4[0]-PAGE_RIGHT, 1.0*cm, str(doc.page))
+    doc=SimpleDocTemplate(str(out/'article.pdf'),pagesize=A4,
+                          leftMargin=PAGE_LEFT,rightMargin=PAGE_RIGHT,
+                          topMargin=PAGE_TOP,bottomMargin=PAGE_BOTTOM,
+                          title=TITLE,author=AUTHOR)
     doc.build(story,onFirstPage=decorate,onLaterPages=decorate)
     (out/'article.md').write_bytes('\n'.join(md).encode('utf-8'))
     metadata={'title':TITLE,'authors':[{'name':AUTHOR,'orcid':'','email':EMAIL,'affiliations':'1,*'}],

@@ -10,7 +10,7 @@
   "journal_submission_executed": true,
   "author_confirmation_pending": false,
   "file_hashes": {
-    "manuscript/article.pdf": "43c4d4df4dc02abc97720ee56bfcea92558c728ae9184f71f73dd14307796f72",
+    "manuscript/article.pdf": "3b16db53fb4847930bc77523bee7de00b5f86f80a31741221eebedcee5cb617c",
     "manuscript/metadata.yaml": "016b077a496eb42a68b9f217e16d96b055fadc87392567ded8da9893f4014492",
     "publication/issue_body.md": "3b9cb3abfa00f60c2377eb0a961af44894357884d47641ebadabc3fc4e9159ee",
     "configs/protocol.json": "f13730f112d4dc01e9872f4cf27543dbedf8972144d916283e0be7ecc3aebc1c"

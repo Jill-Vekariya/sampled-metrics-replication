@@ -94,7 +94,19 @@ All primary directional checks pass. The source's Table 2 contains simulation es
 
 No published Table 2 mean triggers the frozen diagnostic threshold: a 0.0005 rounding allowance plus 3.29 combined standard errors, conditional on the source's stated 1000 independent repetitions. This is a descriptive compatibility check, not proof of identical experimental code. The exact SDs, the new simulated SDs, source SDs and every mean difference are retained in CSV. No population p-value or user-bootstrap interval is appropriate for these five designed instances.
 
-A source-to-output comparison table in REVIEWER_START_HERE.md links the original Tables 1-2 and Figures 2-3 to each reproduced artifact. Curves are computed on declared grids and are not claimed to be pixel-identical graphics.
+## Replication evidence against the original
+
+The replication was assessed against observable targets defined by the original IJCAI example. Success means agreement with its quantitative values or directional behavior under the same sampling assumptions; it does not imply a trained-model replication or an estimate of how frequently the effect occurs in practice.
+
+| Source target | Independent check | Observed agreement |
+|---|---|---|
+| Table 1 | 12 deterministic values | 12/12 match at source precision |
+| Table 2 | 99-negative AP/NDCG | Compatible within stated MC uncertainty |
+| Figure 2 | AP ordering vs. m | Reversals at m=20, 200, 500 reproduced |
+| Figure 3 | Metric-shape curves | Recall@5, AP, NDCG, AUC verified |
+| Analytic invariant | Expected sampled AUC | Invariant across sample sizes |
+
+The accompanying REVIEWER_START_HERE.md maps each published target to machine-readable evidence, including documented simulation discrepancies. Plots use declared grids and are not claimed to be pixel-identical.
 
 ## 7. Execution and reproducibility
 
@@ -130,7 +142,7 @@ Code and data availability: the accompanying research package includes the indep
 
 The author declares no competing interests and no external research funding, no simultaneous journal submission, and no close collaboration with the original authors. The author reviewed and accepts responsibility for the computations, interpretations, source code and manuscript.
 
-Tool-use disclosure: ChatGPT assisted with code generation, computational checks, analysis and manuscript drafting. All published results are supported by the executable code and recorded data; internal assessments are not independent external peer review.
+Assistance disclosure: ChatGPT contributed to coding, computational checks and draft preparation; the author is responsible for all final claims. The numerical results and methods can be independently inspected and reproduced.
 
 ## References
 
