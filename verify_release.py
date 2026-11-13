@@ -121,6 +121,14 @@ def main():
     checks['raw_array_member_hashes_match']=members_ok
     with (ROOT/'results/windows-final/curves.csv').open() as f: curves=list(csv.DictReader(f))
     checks['all_declared_analytical_conditions_retained']=len(curves)==len(cfg['sample_sizes'])*len(cfg['ranks'])*4*2*2
+    with (ROOT/'results/windows-final/metric_shape.csv').open(newline='') as stream:
+        reconstructed_metrics = {row['metric'] for row in csv.DictReader(stream)}
+    checks['figure3_recall_at_five'] = reconstructed_metrics == {
+        'AP', 'NDCG', 'Recall@5', 'AUC'
+    }
+    checks['post_submission_baseline_retained'] = all((ROOT/name).is_file() for name in (
+        'AMENDMENTS.md', 'publication/ORIGINAL_SUBMISSION_RELEASE_PLAN.json',
+        'publication/ORIGINAL_SUBMISSION_MANIFEST.json'))
     checks['pdf_has_pdf_header']=(ROOT/'manuscript/article.pdf').read_bytes().startswith(b'%PDF-')
     issue=(ROOT/'publication/issue_body.md').read_text()
     checks['issue_body_has_required_urls']=all(x in issue for x in

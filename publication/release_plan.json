@@ -10,7 +10,7 @@
   "journal_submission_executed": true,
   "author_confirmation_pending": false,
   "file_hashes": {
-    "manuscript/article.pdf": "e3d78514434e401aa4e37052d985758ddd61e330dbd3e5ac5f16b5d38b66eb57",
+    "manuscript/article.pdf": "98ebf76d9216203276ec5352f1ca2aa9ac4ea41893adadf1a3cb01bdf0b684eb",
     "manuscript/metadata.yaml": "016b077a496eb42a68b9f217e16d96b055fadc87392567ded8da9893f4014492",
     "publication/issue_body.md": "3b9cb3abfa00f60c2377eb0a961af44894357884d47641ebadabc3fc4e9159ee",
     "configs/protocol.json": "f13730f112d4dc01e9872f4cf27543dbedf8972144d916283e0be7ecc3aebc1c"
@@ -18,5 +18,8 @@
   "hash_scope": "This packaged artifact; another reproducible build may have different PDF/archive container bytes.",
   "private_staging_commit": "93b8ef8c8aad9e851e7aef6c3249cd674466fef3",
   "submission_url": "https://github.com/ReScience/submissions/issues/158",
-  "submission_status": "SUBMITTED - AWAITING EDITORIAL HANDLING"
+  "submission_status": "SUBMITTED - AWAITING EDITORIAL HANDLING",
+  "last_amendment": "2026-11-14",
+  "original_submission_release_plan": "publication/ORIGINAL_SUBMISSION_RELEASE_PLAN.json",
+  "amendment_document": "AMENDMENTS.md"
 }

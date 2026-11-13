@@ -6,10 +6,27 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from src.metrics import METRICS, metric, moments
+from src.metrics import METRICS, metric, moments, distribution
 
 ROOT = Path(__file__).resolve().parent
 COLORS = {'A':'#2864b4','B':'#c87920','C':'#16806a'}
+
+FIGURE3_METRICS = ('AP', 'NDCG', 'Recall@5', 'AUC')
+
+
+def figure3_metric_values(ranks, n, m, name):
+    """Figure 3 uses Recall@5; the primary Tables 1-2 use Recall@10.
+
+    Reuse the frozen sampled-rank distribution without changing the
+    originally evaluated metrics, protocol, or source hashes.
+    """
+    if name == 'Recall@5':
+        k, probabilities = distribution(ranks, n, m)
+        expected = probabilities @ (k < 5).astype(float)
+        exact = (np.asarray(ranks) <= 5).astype(float)
+        return expected, exact
+    expected, _ = moments(ranks, n, m, name)
+    return expected, metric(ranks, n, name)
 
 
 def make_figures(out, destination):
@@ -50,19 +67,19 @@ def make_figures(out, destination):
     fig,axes=plt.subplots(2,2,figsize=(9.2,6.4))
     ranks=np.array(cfg['curve_rank_grid'])
     curve_rows=[]
-    for ax,name in zip(axes.flat,METRICS):
+    for ax,name in zip(axes.flat,FIGURE3_METRICS):
         for size in [1,10,100,1000]:
-            values,_=moments(ranks,cfg['n'],size,name)
+            values,exact=figure3_metric_values(ranks,cfg['n'],size,name)
             ax.plot(ranks,values,label=f'm={size}')
             curve_rows.extend(dict(rank=int(r),m=size,metric=name,expected=float(v))
                               for r,v in zip(ranks,values))
-        ax.plot(ranks,metric(ranks,cfg['n'],name),'k--',label='Exact',lw=1.4)
+        ax.plot(ranks,exact,'k--',label='Exact',lw=1.4)
         ax.set(xlim=(1,1000),title=name,xlabel='Full-catalogue rank',ylabel='Expected metric')
         ax.grid(alpha=.16)
     axes[0,0].legend(frameon=False,fontsize=8,ncol=2)
     fig.tight_layout();save(fig,'metric_shape')
     with (out/'metric_shape.csv').open('w',newline='') as f:
-        w=csv.DictWriter(f,fieldnames=list(curve_rows[0]));w.writeheader();w.writerows(curve_rows)
+        w=csv.DictWriter(f,fieldnames=list(curve_rows[0]),lineterminator='\n');w.writeheader();w.writerows(curve_rows)
     print('Figures regenerated in',destination,flush=True)
 
 

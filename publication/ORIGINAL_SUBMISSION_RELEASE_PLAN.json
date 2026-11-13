@@ -1,0 +1,22 @@
+{
+  "title": "[Re] Ranking reversals under sampled recommendation metrics",
+  "author": "Jill Vekariya",
+  "contact": "jillvekariya.10@gmail.com",
+  "repository": "https://github.com/Jill-Vekariya/sampled-metrics-replication",
+  "repository_creation_status": "VERIFIED_PUBLIC",
+  "journal": "ReScience C",
+  "submission_destination": "https://github.com/ReScience/submissions/issues/new/choose",
+  "public_release_executed": true,
+  "journal_submission_executed": true,
+  "author_confirmation_pending": false,
+  "file_hashes": {
+    "manuscript/article.pdf": "e3d78514434e401aa4e37052d985758ddd61e330dbd3e5ac5f16b5d38b66eb57",
+    "manuscript/metadata.yaml": "016b077a496eb42a68b9f217e16d96b055fadc87392567ded8da9893f4014492",
+    "publication/issue_body.md": "3b9cb3abfa00f60c2377eb0a961af44894357884d47641ebadabc3fc4e9159ee",
+    "configs/protocol.json": "f13730f112d4dc01e9872f4cf27543dbedf8972144d916283e0be7ecc3aebc1c"
+  },
+  "hash_scope": "This packaged artifact; another reproducible build may have different PDF/archive container bytes.",
+  "private_staging_commit": "93b8ef8c8aad9e851e7aef6c3249cd674466fef3",
+  "submission_url": "https://github.com/ReScience/submissions/issues/158",
+  "submission_status": "SUBMITTED - AWAITING EDITORIAL HANDLING"
+}

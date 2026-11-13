@@ -53,7 +53,7 @@ Run these with the chosen virtual environment's Python. The builder reads archiv
 | Artifact | Purpose |
 |---|---|
 | `configs/protocol.json`, `protocol.md` | Inputs, frozen design, declared outcomes and exclusions |
-| `src/metrics.py`, `tests/test_metrics.py` | Independent implementation and 40 correctness tests |
+| `src/metrics.py`, `tests/test_metrics.py`, `tests/test_figure3.py` | Maintained implementation, original scientific tests and dedicated Figure 3 regression tests |
 | `results/windows-final/primary.csv` | Exact and simulated scores, SD, MCSE and original comparisons |
 | `results/windows-final/curves.csv` | Every declared sample size, scheme and correction |
 | `results/windows-final/*draws.npz` | Saved metric values for 1000 primary and 100000 calibration repetitions |
@@ -62,7 +62,7 @@ Run these with the chosen virtual environment's Python. The builder reads archiv
 | `clean_reproduction_report.json` | Equality checks and SHA256 of raw array members |
 | `experiment_registry.csv`, `logs/`, root `*.log` | Batch provenance, tests, failures and execution logs |
 | `source_ledger.md`, `audit/atlas_assessment.md` | Source verification, initial target decision and Atlas inspection |
-| `figures/final/` | Three figures in editable-by-code PDF and PNG form |
+| `figures/final/` | Three figures in editable-by-code PDF and PNG form; Figure 3 reconstructed with Recall@5 |
 | `manuscript/` | Article PDF, readable source, metadata, bibliography and fonts |
 | `audit_results.md`, `blockers.md`, `NEXT_ACTION.md` | Current audit and precise resumption state |
 
@@ -87,6 +87,12 @@ Code: MIT (see LICENSE). Manuscript: CC BY 4.0. Dependencies and bundled fonts r
 `publication/issue_body.md` contains the exact journal request. See `submission_status.md` for the actual submission state and official URL when available. An open submission issue does not establish acceptance, publication or assigned peer review.
 
 The release verifier reads YAML metadata. Install `requirements-manuscript.txt`, then run `python verify_release.py --public --manifest`. It checks the frozen scientific evidence, author/contact metadata, authorization and package hashes without rerunning the experiments. A fresh clone of the scientific snapshot passed all 40 tests, manifest checks and manuscript compilation. The frozen inputs and archived results remain unchanged. Later input-validation maintenance is verified by a separate current-source rerun; see the provenance notes below.
+
+## Post-submission Figure 3 correction (14 November 2026)
+
+An amendment to the illustrative IJCAI Figure 3 reconstruction replaces Recall@10 with **Recall@5**, matching the source's Figure 3. **Tables 1-2 and Figure 2 intentionally retain Recall@10**, and the frozen numerical protocol and archived simulation results are unchanged. Nine focused regression tests were added; the complete updated suite passes **134 tests**.
+
+See [AMENDMENTS.md](AMENDMENTS.md) for the technical rationale and the original submission baseline records. The review request is still [ReScience C issue #158](https://github.com/ReScience/submissions/issues/158). This is a correction to an existing submission, not a new submission or an acceptance claim.
 
 ## Source provenance after maintenance
 

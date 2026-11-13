@@ -7,6 +7,7 @@ from pathlib import Path
 import csv
 import json
 import html
+import re
 from reportlab.pdfgen import canvas
 from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer, Table,
                                TableStyle, Image, PageBreak, KeepTogether)
@@ -47,9 +48,25 @@ def main():
     styles.add(ParagraphStyle('Small2',fontName='Sans',fontSize=8.5,leading=11.5,spaceAfter=7))
     styles.add(ParagraphStyle('Cell',fontName='Sans',fontSize=8.2,leading=10.6))
     styles.add(ParagraphStyle('Code2',fontName='Mono',fontSize=7.9,leading=11,spaceAfter=8))
-    story=[]; md=['# '+TITLE,'',SUBTITLE,'',AUTHOR+'. Independent researcher. ReScience C replication manuscript.','Correspondence: '+EMAIL,'']
+    story=[]; md=[]
+
+    def markdown_text(value):
+        # Convert ReportLab paragraph markup to readable GitHub Markdown.
+        value = re.sub(r'<link href="([^"]+)">([^<]+)</link>', r'[\2](\1)', value)
+        value = value.replace('<b>', '**').replace('</b>', '**')
+        value = value.replace('<i>', '*').replace('</i>', '*')
+        value = value.replace('<super>', '<sup>').replace('</super>', '</sup>')
+        value = value.replace('<br/>', '\n')
+        return html.unescape(value)
+
     def text(value,style='Text'):
-        story.append(Paragraph(value,styles[style]));md.extend([value.replace('<b>','**').replace('</b>','**').replace('<i>','*').replace('</i>','*'),''])
+        story.append(Paragraph(value,styles[style]))
+        formatted = markdown_text(value)
+        if style == 'Title2':
+            formatted = '# ' + formatted
+        elif style == 'Sub' and value == SUBTITLE:
+            formatted = '*' + formatted + '*'
+        md.extend([formatted, ''])
     def head(value): text(value,'Head');md[-2]='## '+md[-2]
     def page(): story.append(PageBreak())
     def table(headers,rows,widths=None):
@@ -209,7 +226,10 @@ def main():
          "full-catalogue metric. The preserved code and numerical oracles make that claim directly testable.")
     page()
     head('Appendix. Metric-shape verification')
-    figure('metric_shape.png','Figure 3. Independent reconstruction of the source Figure 3 concept: expected sampled metrics against full-catalogue rank, shown through rank 1000 of n=10000. Values are evaluated on the frozen grid.',326)
+    figure('metric_shape.png','Figure 3. Independent reconstruction of source Figure 3: expected sampled metrics including Recall@5 (rather than Recall@10), shown through rank 1000 of n=10000.',285)
+    text("The source Figure 3 uses Recall@5, while its Tables 1-2 and Figure 2 use Recall@10. "
+         "Only the reconstructed Figure 3 panel uses Recall@5; all original primary calculations, "
+         "sample sizes and simulation records remain unchanged.",'Small2')
     head('Availability and declarations')
     text("Code and data availability: the accompanying research package includes the independent "
          "implementation, the attributed numerical fixture, results, figures, tests and reproduction instructions. "
@@ -239,7 +259,7 @@ def main():
     doc=SimpleDocTemplate(str(out/'article.pdf'),pagesize=A4,leftMargin=70,rightMargin=54,
                           topMargin=62,bottomMargin=57,title=TITLE,author=AUTHOR)
     doc.build(story,onFirstPage=decorate,onLaterPages=decorate)
-    (out/'article.md').write_text('\n'.join(md),encoding='utf-8')
+    (out/'article.md').write_bytes('\n'.join(md).encode('utf-8'))
     metadata={'title':TITLE,'authors':[{'name':AUTHOR,'orcid':'','email':EMAIL,'affiliations':'1,*'}],
       'affiliations':[{'code':1,'name':'Independent researcher','address':''}],
       'keywords':'recommender systems, sampled metrics, partial replication, Python',

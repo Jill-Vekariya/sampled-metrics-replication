@@ -1,19 +1,12 @@
 # [Re] Ranking reversals under sampled recommendation metrics
 
-A scoped replication of the IJCAI 2021 illustrative experiment
-
-Jill Vekariya. Independent researcher. ReScience C replication manuscript.
-Correspondence: jillvekariya.10@gmail.com
-
-[Re] Ranking reversals under sampled recommendation metrics
-
-A scoped replication of the IJCAI 2021 illustrative experiment
+*A scoped replication of the IJCAI 2021 illustrative experiment*
 
 **Jill Vekariya**
 
 Independent researcher | 12 November 2026 | ReScience C replication manuscript
 
-Correspondence: <link href="mailto:jillvekariya.10@gmail.com">jillvekariya.10@gmail.com</link>
+Correspondence: [jillvekariya.10@gmail.com](mailto:jillvekariya.10@gmail.com)
 
 ## Abstract
 
@@ -39,11 +32,11 @@ The catalogue contains n=10000 items and exactly one relevant item for each of f
 | B | 40, 40, 8437, 9266, 4482 |
 | C | 212, 2, 743, 5342, 1548 |
 
-For one relevant item, AP(r)=1/r, NDCG(r)=1/log<sub>2</sub>(r+1), Recall@10(r)=1[r≤10], and AUC(r)=(n-r)/(n-1). All reported scores are arithmetic means across the five instances. The untruncated AP and NDCG definitions follow the source.
+For one relevant item, AP(r)=1/r, NDCG(r)=1/log<sub>2</sub>(r+1), Recall@10(r)=1[râ‰¤10], and AUC(r)=(n-r)/(n-1). All reported scores are arithmetic means across the five instances. The untruncated AP and NDCG definitions follow the source.
 
 The primary protocol samples m irrelevant items uniformly with replacement, excluding the relevant item. If K sampled entries outrank the relevant item, its sampled rank is 1+K. With p=(r-1)/(n-1), K follows Binomial(m,p). Repeated draws count as repeated entries under this protocol. A sampled AUC therefore uses a catalogue size of m+1 and a denominator of m, rather than n-1.
 
-Expected metrics are obtained by summing M(1+k)Pr(K=k), for k=0,...,m. The variance of a single five-instance macro evaluation is the sum of the five instance variances divided by 25, with draws independent across instances. SD below denotes the square root of this variance. The Monte Carlo standard error of an average over R repeated evaluations is SD/√R; the two quantities are distinct.
+Expected metrics are obtained by summing M(1+k)Pr(K=k), for k=0,...,m. The variance of a single five-instance macro evaluation is the sum of the five instance variances divided by 25, with draws independent across instances. SD below denotes the square root of this variance. The Monte Carlo standard error of an average over R repeated evaluations is SD/âˆšR; the two quantities are distinct.
 
 The configuration was frozen before final metric evaluation (protocol v1.0). The primary sample size is 99 negatives. One thousand repetitions use NumPy seeds 20261112, 20261113 and 20261114 for A, B and C. Separate 100000-repeat checks use those seeds plus 10000. Twenty-three declared sample sizes from 1 to 9999 support the sensitivity curves; no outcome-dependent tuning is used.
 
@@ -51,7 +44,7 @@ The configuration was frozen before final metric evaluation (protocol v1.0). The
 
 The code was written from the published definitions. NumPy provides random draws and SciPy provides binomial and hypergeometric mass functions. Exhaustive enumeration of all small-catalogue sequences and subsets checks those distributions. Separate direct negative-item sampling checks metric means. Other tests cover rank boundaries, exclusion of the positive, repeated negative draws, complete sampling, aggregation, fixed seeds, invalid inputs and the closed-form binomial AP expectation.
 
-For AP, the independent closed-form oracle is [1-(1-p)<super>m+1</super>]/[(m+1)p] for p&gt;0, with limiting value 1 at p=0. Expected AUC must equal full-catalogue AUC. When m=1, every metric has expectation (1-p)M(1)+pM(2); Recall@10 is then constant, rather than a useful AUC comparison.
+For AP, the independent closed-form oracle is [1-(1-p)<sup>m+1</sup>]/[(m+1)p] for p>0, with limiting value 1 at p=0. Expected AUC must equal full-catalogue AUC. When m=1, every metric has expectation (1-p)M(1)+pM(2); Recall@10 is then constant, rather than a useful AUC comparison.
 
 ## 4. Primary replicated results
 
@@ -67,11 +60,11 @@ Table 1 reports independent full-catalogue calculations. All entries round to th
 
 With 99 sampled negatives, expected AP ranks A above B above C. Expected NDCG ranks A above C above B. Sampling reverses the A-versus-C comparison for both metrics, without requiring any particular random realization. The 1000-repeat AP estimates are 0.634902, 0.343412 and 0.325680 for A, B and C; the corresponding analytic expectations are shown in Table 2.
 
-| Model | AP expectation ± SD | NDCG expectation ± SD | Recall@10 expectation |
+| Model | AP expectation Â± SD | NDCG expectation Â± SD | Recall@10 expectation |
 |---|---|---|---|
-| A | 0.636592 ± 0.130393 | 0.728989 ± 0.097758 | 1.000000 |
-| B | 0.340739 ± 0.071091 | 0.447337 ± 0.052787 | 0.400000 |
-| C | 0.326169 ± 0.050873 | 0.459986 ± 0.039519 | 0.569422 |
+| A | 0.636592 Â± 0.130393 | 0.728989 Â± 0.097758 | 1.000000 |
+| B | 0.340739 Â± 0.071091 | 0.447337 Â± 0.052787 | 0.400000 |
+| C | 0.326169 Â± 0.050873 | 0.459986 Â± 0.039519 | 0.569422 |
 
 **Table 2.** Analytic moments of a single five-instance evaluation, m=99, with replacement. The SD is not the uncertainty of the analytic expectation.
 
@@ -79,7 +72,7 @@ Figure 1. Full-catalogue metrics, sampled expectations and 1000-repeat Monte Car
 
 ![Figure 1. Full-catalogue metrics, sampled expectations and 1000-repeat Monte Carlo means for the published rank fixture.](../figures/final/rank_reversal.png)
 
-Across the declared uncorrected sample sizes and both sampling schemes, the largest absolute AUC expectation error is 1.23×10<super>-15</super> or less. Every calibration mean falls within five analytic Monte Carlo standard errors of its target (largest absolute standardized error below 1.2).
+Across the declared uncorrected sample sizes and both sampling schemes, the largest absolute AUC expectation error is 1.23Ã—10<sup>-15</sup> or less. Every calibration mean falls within five analytic Monte Carlo standard errors of its target (largest absolute standardized error below 1.2).
 
 ## 5. Sample-size sensitivity and secondary analyses
 
@@ -87,7 +80,7 @@ Figure 2. Recomputed expectation curves on the frozen sample-size grid. Dotted l
 
 ![Figure 2. Recomputed expectation curves on the frozen sample-size grid. Dotted lines show each full-catalogue metric; line segments interpolate the evaluated points.](../figures/final/sample_size_sensitivity.png)
 
-For AP, the computed orders are A&gt;C&gt;B at m=20, A&gt;B&gt;C at m=200, and C&gt;A&gt;B at m=500. These reproduce the source's illustrated changes. At m=9999, the order is C&gt;B&gt;A; full-catalogue B AP is 0.010089912 and A AP is 0.010000000. Their equality in the printed table is a three-decimal rounding effect. With-replacement sampling at m=n-1 does not exhaust the catalogue.
+For AP, the computed orders are A>C>B at m=20, A>B>C at m=200, and C>A>B at m=500. These reproduce the source's illustrated changes. At m=9999, the order is C>B>A; full-catalogue B AP is 0.010089912 and A AP is 0.010000000. Their equality in the printed table is a three-decimal rounding effect. With-replacement sampling at m=n-1 does not exhaust the catalogue.
 
 The prespecified without-replacement extension uses K~Hypergeometric(n-1,r-1,m). At m=99, expected AP is 0.635805, 0.340548 and 0.325970 for A, B and C, preserving the reversal. At m=9999, all four metrics for all three recommenders equal their exact full-catalogue values, as they must when every irrelevant item is included once.
 
@@ -95,7 +88,7 @@ The secondary Eq.9 correction evaluates the metric at floor[1+(n-1)K/m]. At m=99
 
 ## 6. Agreement, uncertainty and discrepancies
 
-All primary directional checks pass. The source's Table 2 contains simulation estimates rather than exact expectations; its random seed is not specified in the selected article. For example, the source reports A's sampled AP as 0.630±0.129, compared with the independently calculated expectation 0.636592 and SD 0.130393. A repeated-evaluation mean need not match to three decimals.
+All primary directional checks pass. The source's Table 2 contains simulation estimates rather than exact expectations; its random seed is not specified in the selected article. For example, the source reports A's sampled AP as 0.630Â±0.129, compared with the independently calculated expectation 0.636592 and SD 0.130393. A repeated-evaluation mean need not match to three decimals.
 
 No published Table 2 mean triggers the frozen diagnostic threshold: a 0.0005 rounding allowance plus 3.29 combined standard errors, conditional on the source's stated 1000 independent repetitions. This is a descriptive compatibility check, not proof of identical experimental code. The exact SDs, the new simulated SDs, source SDs and every mean difference are retained in CSV. No population p-value or user-bootstrap interval is appropriate for these five designed instances.
 
@@ -105,7 +98,11 @@ The primary implementation was executed through Desktop Commander on a Windows 1
 
 Linux execution (Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0) agreed to numerical precision. A fresh Windows virtual environment installed pinned dependencies, passed all 40 tests and repeated the experiment. Every primary summary and saved Monte Carlo array matched the first Windows run exactly. Source and protocol hashes, Git commits, seeds, software versions, timings and the detailed reproduction report accompany the package.
 
-python -m pip install -r requirements.txt<br/>python -m pip install -r requirements-manuscript.txt<br/>python -m pytest -q<br/>python run_experiments.py --output results/new-run<br/>python build_manuscript.py
+python -m pip install -r requirements.txt
+python -m pip install -r requirements-manuscript.txt
+python -m pytest -q
+python run_experiments.py --output results/new-run
+python build_manuscript.py
 
 Run commands from the project root. A new output directory is required to preserve existing evidence. The manuscript builder uses the archived Windows result table and regenerates its numerical tables automatically; a comparison script audits rerun values against that evidence.
 
@@ -117,9 +114,11 @@ Within this fixed and explicit scope, the independent calculations support the o
 
 ## Appendix. Metric-shape verification
 
-Figure 3. Independent reconstruction of the source Figure 3 concept: expected sampled metrics against full-catalogue rank, shown through rank 1000 of n=10000. Values are evaluated on the frozen grid.
+Figure 3. Independent reconstruction of source Figure 3: expected sampled metrics including Recall@5 (rather than Recall@10), shown through rank 1000 of n=10000.
 
-![Figure 3. Independent reconstruction of the source Figure 3 concept: expected sampled metrics against full-catalogue rank, shown through rank 1000 of n=10000. Values are evaluated on the frozen grid.](../figures/final/metric_shape.png)
+![Figure 3. Independent reconstruction of source Figure 3: expected sampled metrics including Recall@5 (rather than Recall@10), shown through rank 1000 of n=10000.](../figures/final/metric_shape.png)
+
+The source Figure 3 uses Recall@5, while its Tables 1-2 and Figure 2 use Recall@10. Only the reconstructed Figure 3 panel uses Recall@5; all original primary calculations, sample sizes and simulation records remain unchanged.
 
 ## Availability and declarations
 
