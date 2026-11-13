@@ -2,7 +2,7 @@
 
 Author and maintainer: Jill Vekariya.
 
-Jill has reviewed the work repeatedly and accepts responsibility for the code, analysis and manuscript. This statement records the author's confirmation; it is not a claim of independent peer review.
+Jill confirms that the research work is complete and that the code, analysis and manuscript have undergone multiple rounds of author review and revision. Jill accepts responsibility for the final work. This statement records the author's confirmation; it does not certify independent peer review or replace the project's recorded test and verification results.
 
 Contact: jillvekariya.10@gmail.com.
 
@@ -16,4 +16,4 @@ This project is an independent, scoped computational replication of findings fro
 
 ## Review and publication
 
-The author's review and responsibility are separate from journal editorial handling, external peer review, acceptance and publication. See the README and submission_status.md for the recorded submission status.
+Completion of the author's research work and review rounds is separate from journal editorial handling, external peer review, acceptance and publication. See the README and submission_status.md for the recorded submission status.
