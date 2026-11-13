@@ -7,7 +7,7 @@ Author: Jill Vekariya, Independent researcher
 Correspondence: jillvekariya.10@gmail.com
 Original article: Krichene and Rendle, IJCAI 2021, DOI 10.24963/ijcai.2021/651.
 
-The scoped partial replication covers the fixed-rank example in Tables 1-2 and findings of Figures 2-3. It reproduces AP/NDCG ranking reversal and AUC invariance through finite expectations, simulation, exhaustive correctness checks and a clean Windows rerun. It does not reproduce the KDD 2020 trained-model experiment or Zhao et al.'s splitting benchmark. Scope limits and AI assistance are disclosed.
+The scoped partial replication covers the fixed-rank example in Tables 1-2 and findings of Figures 2-3. It reproduces AP/NDCG ranking reversal and AUC invariance through finite expectations, simulation, exhaustive correctness checks and a clean Windows rerun. It does not reproduce the KDD 2020 trained-model experiment or Zhao et al.'s splitting benchmark. Scope limits, research methods and author declarations are documented in the manuscript and submitted journal request.
 
 Code: https://github.com/Jill-Vekariya/sampled-metrics-replication
 PDF: https://raw.githubusercontent.com/Jill-Vekariya/sampled-metrics-replication/main/manuscript/article.pdf

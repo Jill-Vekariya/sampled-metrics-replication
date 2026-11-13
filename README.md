@@ -94,7 +94,7 @@ The release verifier reads YAML metadata. Install `requirements-manuscript.txt`,
 
 ## Post-submission Figure 3 correction (14 November 2026)
 
-An amendment to the illustrative IJCAI Figure 3 reconstruction replaces Recall@10 with **Recall@5**, matching the source's Figure 3. **Tables 1-2 and Figure 2 intentionally retain Recall@10**, and the frozen numerical protocol and archived simulation results are unchanged. Nine Figure 3 regression tests and six manuscript-quality checks were added; the complete updated suite passes **140 tests**.
+An amendment to the illustrative IJCAI Figure 3 reconstruction replaces Recall@10 with **Recall@5**, matching the source's Figure 3. **Tables 1-2 and Figure 2 intentionally retain Recall@10**, and the frozen numerical protocol and archived simulation results are unchanged. Nine Figure 3 regression tests and six manuscript-quality checks were added; the complete updated suite passes **142 tests**.
 
 See [AMENDMENTS.md](AMENDMENTS.md) for the technical rationale and the original submission baseline records. The review request is still [ReScience C issue #158](https://github.com/ReScience/submissions/issues/158). This is a correction to an existing submission, not a new submission or an acceptance claim.
 

@@ -15,7 +15,7 @@ code:
 - doi: ''
 - swh: ''
 data:
-- url: https://github.com/Jill-Vekariya/sampled-metrics-replication/tree/main/configs
+- url: https://github.com/Jill-Vekariya/sampled-metrics-replication/tree/main/results/windows-final
 - doi: ''
 replication:
 - cite: 'W. Krichene and S. Rendle. On Sampled Metrics for Item Recommendation (Extended

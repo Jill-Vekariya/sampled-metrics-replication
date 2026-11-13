@@ -22,13 +22,15 @@ Zhao et al.'s broader evaluation study [3] also examines how sampled candidates 
 
 The contribution here is an independently executable verification package: exact expectations and macro-evaluation variances, random simulation, finite-catalogue correctness oracles, two operating systems and transparent comparison at unrounded precision. The fixture and the inconsistency claim are credited to the original authors; the phenomenon is not presented as a new discovery.
 
-Why this is a partial replication: the published example makes a falsifiable claim about evaluation rankings, not the training of a particular recommender. We independently implement the finite sampled-rank distribution, derive expectations and variances, simulate sampling with predeclared seeds, and check the resulting model-order reversals against the source. Agreement of these different computational routes verifies that specific numerical counterexample; it does not establish the frequency of the effect in real systems.
+## Replication significance
+
+The published example makes a falsifiable claim about evaluation rankings, not the training of a particular recommender. We independently implement the finite sampled-rank distribution, derive expectations and variances, simulate sampling with predeclared seeds, and check the resulting model-order reversals against the source. Agreement of these different computational routes verifies that specific numerical counterexample; it does not establish the frequency of the effect in real systems.
 
 ## 2. Frozen computational protocol
 
 The catalogue contains n=10000 items and exactly one relevant item for each of five evaluation instances. A, B and C are the source's constructed rank lists, not learned model implementations. Rank 1 is best. These numerical inputs require no user records, dataset download or training.
 
-| Recommender | Full-catalogue ranks of the five relevant items |
+| List | Full-catalogue ranks of the five relevant items |
 |---|---|
 | A | 100, 100, 100, 100, 100 |
 | B | 40, 40, 8437, 9266, 4482 |
@@ -58,17 +60,20 @@ Table 1 reports independent full-catalogue calculations. All entries round to th
 | B | 0.554755 | 0.010090 | 0.121660 | 0.000000 |
 | C | 0.843144 | 0.101379 | 0.208033 | 0.200000 |
 
-**Table 1.** Independently calculated full-catalogue metrics. These are deterministic values.
+**Table 1.** Independently calculated deterministic full-catalogue metrics.
 
 With 99 sampled negatives, expected AP ranks A above B above C. Expected NDCG ranks A above C above B. Sampling reverses the A-versus-C comparison for both metrics, without requiring any particular random realization. The 1000-repeat AP estimates are 0.634902, 0.343412 and 0.325680 for A, B and C; the corresponding analytic expectations are shown in Table 2.
 
-| Model | AP expectation ± SD | NDCG expectation ± SD | Recall@10 expectation |
-|---|---|---|---|
-| A | 0.636592 ± 0.130393 | 0.728989 ± 0.097758 | 1.000000 |
-| B | 0.340739 ± 0.071091 | 0.447337 ± 0.052787 | 0.400000 |
-| C | 0.326169 ± 0.050873 | 0.459986 ± 0.039519 | 0.569422 |
+Each entry in Table 2 is an analytical expectation ± single-evaluation SD. It covers all four metrics in source Table 2, including AUC. These are conditional moments for five independent instances, not standard errors of the expectation.
 
-**Table 2.** Analytic moments of a single five-instance evaluation, m=99, with replacement. The SD is not the uncertainty of the analytic expectation.
+| Metric | A | B | C |
+|---|---|---|---|
+| AUC | 0.990099 ± 0.004450 | 0.554755 ± 0.013558 | 0.843144 ± 0.013767 |
+| AP | 0.636592 ± 0.130393 | 0.340739 ± 0.071091 | 0.326169 ± 0.050873 |
+| NDCG | 0.728989 ± 0.097758 | 0.447337 ± 0.052787 | 0.459986 ± 0.039519 |
+| Recall@10 | 1.000000 ± 0.000112 | 0.400000 ± 0.000001 | 0.569422 ± 0.090245 |
+
+**Table 2.** Analytic expectation ± single-evaluation SD (m=99 negatives, with replacement). Source simulation estimates are compared in Section 6.
 
 Figure 1. Full-catalogue metrics, sampled expectations and 1000-repeat Monte Carlo means for the published rank fixture.
 
@@ -101,7 +106,7 @@ The replication was assessed against observable targets defined by the original 
 | Source target | Independent check | Observed agreement |
 |---|---|---|
 | Table 1 | 12 deterministic values | 12/12 match at source precision |
-| Table 2 | 99-negative AP/NDCG | Compatible within stated MC uncertainty |
+| Table 2 | All four metrics, m=99 | Analytic moments; source means compatible |
 | Figure 2 | AP ordering vs. m | Reversals at m=20, 200, 500 reproduced |
 | Figure 3 | Metric-shape curves | Recall@5, AP, NDCG, AUC verified |
 | Analytic invariant | Expected sampled AUC | Invariant across sample sizes |
@@ -112,7 +117,7 @@ The accompanying REVIEWER_START_HERE.md maps each published target to machine-re
 
 The primary implementation was executed through Desktop Commander on a Windows 11 laptop with 16 GB RAM and 12 logical processors, using Python 3.13.3, NumPy 2.5.4 and SciPy 1.18.1. The archived primary evaluation passed 40 tests at that time. An earlier run stopped before metric evaluation because Windows path separators broke a provenance lookup. The path serialization was corrected, the failure log retained and the experiment rerun; the scientific protocol was unchanged.
 
-Linux execution (Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0) agreed to numerical precision. A fresh Windows virtual environment installed pinned dependencies, passed the original 40 tests and repeated the experiment. Every primary summary and saved Monte Carlo array matched the first Windows run exactly. The later maintained repository passed 140 tests on 14 November 2026. This expanded suite is a post-submission software validation, not part of the frozen initial run. Source and protocol hashes, Git commits, seeds, software versions, timings and the detailed reproduction report accompany the package.
+Linux execution (Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0) agreed to numerical precision. A fresh Windows virtual environment installed pinned dependencies, passed the original 40 tests and repeated the experiment. Every primary summary and saved Monte Carlo array matched the first Windows run exactly. The later maintained repository passed 142 tests on 14 November 2026. This expanded suite is a post-submission software validation, not part of the frozen initial run. Source and protocol hashes, Git commits, seeds, software versions, timings and the detailed reproduction report accompany the package.
 
 python -m pip install -r requirements.txt
 python -m pip install -r requirements-manuscript.txt

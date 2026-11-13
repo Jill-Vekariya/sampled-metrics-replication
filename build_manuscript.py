@@ -86,7 +86,7 @@ def main():
         # Natural page flow with keepWithNext headings is closer to the
         # official template than forcing a page at every manuscript section.
         return None
-    def table(headers,rows,widths=None):
+    def table(headers,rows,widths=None,caption=None):
         data=[[Paragraph(html.escape(str(v)),styles['Cell']) for v in row] for row in [headers]+rows]
         if widths:
             widths = [TEXT_WIDTH * float(w) / sum(widths) for w in widths]
@@ -96,9 +96,16 @@ def main():
                               ('LINEBELOW',(0,-1),(-1,-1),.5,colors.HexColor('#a9b1b8')),
                               ('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),5),
                               ('BOTTOMPADDING',(0,0),(-1,-1),6),('LEFTPADDING',(0,0),(-1,-1),6)]))
-        story.extend([t,Spacer(1,9)])
+        if caption:
+            # Keep the table and its caption together in the narrow ReScience layout.
+            story.append(KeepTogether([t, Spacer(1,4),
+                                       Paragraph(caption,styles['Small2'])]))
+        else:
+            story.extend([t, Spacer(1,9)])
         md.extend(['| '+' | '.join(map(str,headers))+' |','|'+'---|'*len(headers)])
         md.extend('| '+' | '.join(map(str,row))+' |' for row in rows);md.append('')
+        if caption:
+            md.extend([markdown_text(caption),''])
     def figure(name,caption,height):
         path=ROOT/'figures/final'/name
         iw, ih = ImageReader(str(path)).getSize()
@@ -143,8 +150,9 @@ def main():
          "macro-evaluation variances, random simulation, finite-catalogue correctness oracles, two operating "
          "systems and transparent comparison at unrounded precision. The fixture and the inconsistency claim "
          "are credited to the original authors; the phenomenon is not presented as a new discovery.")
-    text("Why this is a partial replication: the published example makes a falsifiable claim about "
-         "evaluation rankings, not the training of a particular recommender. We independently implement "
+    head('Replication significance')
+    text("The published example makes a falsifiable claim about evaluation rankings, "
+         "not the training of a particular recommender. We independently implement "
          "the finite sampled-rank distribution, derive expectations and variances, simulate sampling "
          "with predeclared seeds, and check the resulting model-order reversals against the source. "
          "Agreement of these different computational routes verifies that specific numerical "
@@ -154,7 +162,7 @@ def main():
     text("The catalogue contains n=10000 items and exactly one relevant item for each of five evaluation "
          "instances. A, B and C are the source's constructed rank lists, not learned model implementations. "
          "Rank 1 is best. These numerical inputs require no user records, dataset download or training.")
-    table(['Recommender','Full-catalogue ranks of the five relevant items'],
+    table(['List','Full-catalogue ranks of the five relevant items'],
           [['A','100, 100, 100, 100, 100'],['B','40, 40, 8437, 9266, 4482'],
            ['C','212, 2, 743, 5342, 1548']],[82,389])
     text("For one relevant item, AP(r)=1/r, NDCG(r)=1/log<sub>2</sub>(r+1), Recall@10(r)=1[r≤10], "
@@ -187,18 +195,22 @@ def main():
          "in the original Table 1. In particular, C has higher AP and NDCG than A, whereas A has higher AUC.")
     table(['Model','AUC','AP','NDCG','Recall@10'],[[model]+[
         f"{primary[model,name]['exact']:.6f}" for name in ['AUC','AP','NDCG','Recall@10']]
-        for model in ['A','B','C']],[50,105,105,105,106])
-    text('<b>Table 1.</b> Independently calculated full-catalogue metrics. These are deterministic values.','Small2')
+        for model in ['A','B','C']],[50,105,105,105,106],
+        caption='<b>Table 1.</b> Independently calculated deterministic full-catalogue metrics.')
     text("With 99 sampled negatives, expected AP ranks A above B above C. Expected NDCG ranks A above C "
          "above B. Sampling reverses the A-versus-C comparison for both metrics, without requiring any "
          "particular random realization. The 1000-repeat AP estimates are 0.634902, 0.343412 and 0.325680 "
          "for A, B and C; the corresponding analytic expectations are shown in Table 2.")
-    table(['Model','AP expectation ± SD','NDCG expectation ± SD','Recall@10 expectation'],[
-        [model,f"{primary[model,'AP']['expected']:.6f} ± {primary[model,'AP']['analytic_sd']:.6f}",
-         f"{primary[model,'NDCG']['expected']:.6f} ± {primary[model,'NDCG']['analytic_sd']:.6f}",
-         f"{primary[model,'Recall@10']['expected']:.6f}"] for model in ['A','B','C']],[45,151,160,115])
-    text('<b>Table 2.</b> Analytic moments of a single five-instance evaluation, m=99, with replacement. '
-         'The SD is not the uncertainty of the analytic expectation.','Small2')
+    text("Each entry in Table 2 is an analytical expectation ± single-evaluation SD. "
+         "It covers all four metrics in source Table 2, including AUC. These are "
+         "conditional moments for five independent instances, not standard errors of the expectation.",'Small2')
+    table(['Metric','A','B','C'],[
+        [name]+[f"{primary[model,name]['expected']:.6f} ± {primary[model,name]['analytic_sd']:.6f}"
+                for model in ['A','B','C']]
+        for name in ['AUC','AP','NDCG','Recall@10']],[65,103,103,103],
+        caption=('<b>Table 2.</b> Analytic expectation ± single-evaluation SD '
+                 '(m=99 negatives, with replacement). Source simulation estimates '
+                 'are compared in Section 6.'))
     figure('rank_reversal.png','Figure 1. Full-catalogue metrics, sampled expectations and 1000-repeat Monte Carlo means for the published rank fixture.',168)
     text("Across the declared uncorrected sample sizes and both sampling schemes, the largest absolute AUC "
          "expectation error is 1.23×10<super>-15</super> or less. Every calibration mean falls within five "
@@ -236,7 +248,7 @@ def main():
          "replication or an estimate of how frequently the effect occurs in practice.")
     table(['Source target', 'Independent check', 'Observed agreement'], [
         ['Table 1', '12 deterministic values', '12/12 match at source precision'],
-        ['Table 2', '99-negative AP/NDCG', 'Compatible within stated MC uncertainty'],
+        ['Table 2', 'All four metrics, m=99', 'Analytic moments; source means compatible'],
         ['Figure 2', 'AP ordering vs. m', 'Reversals at m=20, 200, 500 reproduced'],
         ['Figure 3', 'Metric-shape curves', 'Recall@5, AP, NDCG, AUC verified'],
         ['Analytic invariant', 'Expected sampled AUC', 'Invariant across sample sizes']
@@ -253,7 +265,7 @@ def main():
     text("Linux execution (Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0) agreed to numerical precision. "
          "A fresh Windows virtual environment installed pinned dependencies, passed the original 40 tests and "
          "repeated the experiment. Every primary summary and saved Monte Carlo array matched the first "
-         "Windows run exactly. The later maintained repository passed 140 tests on 14 November 2026. "
+         "Windows run exactly. The later maintained repository passed 142 tests on 14 November 2026. "
          "This expanded suite is a post-submission software validation, not part of the frozen initial run. "
          "Source and protocol hashes, Git commits, seeds, software versions, timings "
          "and the detailed reproduction report accompany the package.")
@@ -322,7 +334,7 @@ def main():
       'affiliations':[{'code':1,'name':'Independent researcher','address':''}],
       'keywords':'recommender systems, sampled metrics, partial replication, Python',
       'code':[{'url':CODE_URL},{'doi':''},{'swh':''}],
-      'data':[{'url':CODE_URL+'/tree/main/configs'},{'doi':''}],
+      'data':[{'url':CODE_URL+'/tree/main/results/windows-final'},{'doi':''}],
       'replication':[{'cite':refs[0][4:]},{'bib':'krichene2021'},{'url':'https://www.ijcai.org/proceedings/2021/0651.pdf'},
                      {'doi':'10.24963/ijcai.2021/651'}],
       'abstract':abstract,'bibliography':'bibliography.bib','type':'Replication','domain':'Machine Learning',
@@ -337,8 +349,10 @@ def main():
     yaml.SafeDumper.add_representer(QuotedAbstract, lambda dumper,value:
         dumper.represent_scalar('tag:yaml.org,2002:str',value,style='"'))
     metadata['abstract'] = QuotedAbstract(abstract)
-    (out/'metadata.yaml').write_text('# Author-approved replication manuscript. Editorial fields await the journal.\n'+
-                                    yaml.safe_dump(metadata,sort_keys=False,allow_unicode=True),encoding='utf-8')
+    (out/'metadata.yaml').write_bytes((
+        '# Author-approved replication manuscript. Editorial fields await the journal.\n'
+        + yaml.safe_dump(metadata,sort_keys=False,allow_unicode=True)
+    ).replace('\r\n', '\n').encode('utf-8'))
     print('Compiled',out/'article.pdf')
 
 

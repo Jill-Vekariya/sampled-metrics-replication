@@ -1,5 +1,12 @@
 # Post-submission amendment record
 
+## 14 November 2026 - Table completeness and final editorial preflight
+
+- Added AUC to the manuscript's sampled-metric Table 2 and reported analytical mean ± SD for all four source metrics, preserving all original numerical data and simulation records.
+- Added a visible replication-significance subheading so the partial-scope argument remains together if it flows to another page; shortened the rank-list table header.
+- Corrected the YAML data URL to point to the archived numerical results rather than only the configuration directory.
+- Removed redundant tool/disclosure commentary from secondary review notes; the manuscript and actual submission record still retain accurate, attributable research-assistance disclosures. No historical experiment or submission record was rewritten.
+
 ## 14 November 2026 - Journal-template styling and stronger scope evidence
 
 - Compared the current official ReScience C template at commit `0978d0e` (`rescience.cls` and `header.tex`) and an existing published journal article. Adapted the manuscript build to its A4 geometry, dark-red journal tag, flush-left typography, gray section numbers, figure aspect ratios, column width and caption grouping. See `manuscript/TEMPLATE_ADAPTATION.md` for explicit matches and limitations.

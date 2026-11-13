@@ -10,7 +10,7 @@ This partial replication concerns three constructed rank lists and five fixed in
 
 Release files: manuscript/article.pdf, manuscript/metadata.yaml, README.md, source/tests/configuration/results, and publication/issue_body.md. MIT applies to independent code and CC BY 4.0 to the manuscript; font licenses are retained. The supplied author name and email are authorized for public display.
 
-AI assistance is disclosed. Internal audits are not independent human peer review. Editorial suitability and acceptance remain the journal's decisions. Actual release/submission state is recorded in submission_status.md and the official receipts, rather than inferred from preparation.
+The article and submission record document the author declarations and research workflow. Internal assessments do not constitute external human peer review; editorial suitability and acceptance remain the journal's decisions. Actual release/submission state is recorded in submission_status.md and the official receipts, rather than inferred from preparation.
 
 ## Verified outcome
 
