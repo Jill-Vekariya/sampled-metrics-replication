@@ -333,7 +333,7 @@ def main():
     metadata={'title':TITLE,'authors':[{'name':AUTHOR,'orcid':'','email':EMAIL,'affiliations':'1,*'}],
       'affiliations':[{'code':1,'name':'Independent researcher','address':''}],
       'keywords':'recommender systems, sampled metrics, partial replication, Python',
-      'code':[{'url':CODE_URL},{'doi':''},{'swh':''}],
+      'code':[{'url':CODE_URL},{'doi':''},{'swh':'swh:1:snp:f8731f1851a899e32443bd1b093bfb896188d3e1'}],
       'data':[{'url':CODE_URL+'/tree/main/results/windows-final'},{'doi':''}],
       'replication':[{'cite':refs[0][4:]},{'bib':'krichene2021'},{'url':'https://www.ijcai.org/proceedings/2021/0651.pdf'},
                      {'doi':'10.24963/ijcai.2021/651'}],

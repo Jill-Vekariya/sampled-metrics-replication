@@ -11,7 +11,7 @@
   "author_confirmation_pending": false,
   "file_hashes": {
     "manuscript/article.pdf": "c875aea59276290840a7c622e2f5e03b6939540d4454758ffc56e8335482cf1a",
-    "manuscript/metadata.yaml": "95e0b161cc2449e666ff869c01f2c98fc53c5719938a6cd01282d218cc77ad76",
+    "manuscript/metadata.yaml": "d96d25c9f9066242aad65d49c72aee546d0504bee33a3a2fb7c082dbc3dd2660",
     "publication/issue_body.md": "3b9cb3abfa00f60c2377eb0a961af44894357884d47641ebadabc3fc4e9159ee",
     "configs/protocol.json": "f13730f112d4dc01e9872f4cf27543dbedf8972144d916283e0be7ecc3aebc1c"
   },

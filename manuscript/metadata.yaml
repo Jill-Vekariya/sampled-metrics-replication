@@ -13,7 +13,7 @@ keywords: recommender systems, sampled metrics, partial replication, Python
 code:
 - url: https://github.com/Jill-Vekariya/sampled-metrics-replication
 - doi: ''
-- swh: ''
+- swh: swh:1:snp:f8731f1851a899e32443bd1b093bfb896188d3e1
 data:
 - url: https://github.com/Jill-Vekariya/sampled-metrics-replication/tree/main/results/windows-final
 - doi: ''

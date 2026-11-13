@@ -100,8 +100,8 @@
     "sha256": "adc31ea2c7f5200a8841bc11584134167cb6f3cc6359c9e0a3b076c6cf89fa89"
   },
   "build_manuscript.py": {
-    "bytes": 27210,
-    "sha256": "0a74c937c77c8dabda0e27853a2a8dd0483fb349ad11e23932319a02282ec75a"
+    "bytes": 27260,
+    "sha256": "30cbf9a4c8d652af2fe4a9b7b5c41ccdfa3d6a71d6248387683823803f283985"
   },
   "clean_figures.log": {
     "bytes": 94,
@@ -244,8 +244,8 @@
     "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9"
   },
   "manuscript/metadata.yaml": {
-    "bytes": 2242,
-    "sha256": "95e0b161cc2449e666ff869c01f2c98fc53c5719938a6cd01282d218cc77ad76"
+    "bytes": 2290,
+    "sha256": "d96d25c9f9066242aad65d49c72aee546d0504bee33a3a2fb7c082dbc3dd2660"
   },
   "pilot_tests.log": {
     "bytes": 1086,
@@ -313,7 +313,7 @@
   },
   "publication/release_plan.json": {
     "bytes": 1427,
-    "sha256": "8a70468a85cb70bc3bbd5a65725a4dadb00aff24d6c046693a3a181619208136"
+    "sha256": "70fec906697186f773440d10b60b45c779f3b3d99a6670580102bde77bd343ce"
   },
   "publication/repository_attempt.json": {
     "bytes": 1181,
