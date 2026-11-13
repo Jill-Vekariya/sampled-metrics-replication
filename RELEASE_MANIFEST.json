@@ -8,8 +8,8 @@
     "sha256": "9cfbf692cbb46dbbe0e8f07524a30f3cd4299775f0118703c531c6be6df91b47"
   },
   "AMENDMENTS.md": {
-    "bytes": 2071,
-    "sha256": "2f00fcd772ec7950e153b01f4a3b2549903a26bbe6e92b01d071c8020b6c990b"
+    "bytes": 3329,
+    "sha256": "c80abb829a9054e5b1f6edc45d81433f0872aa5942bf80953cf070a1bcd70c88"
   },
   "AUTHORS.md": {
     "bytes": 1148,
@@ -28,8 +28,12 @@
     "sha256": "c86c7ee6c8ec7de657d78ee1b17a68d6b59aa4fd6b6d89714458f834692df352"
   },
   "README.md": {
-    "bytes": 9002,
-    "sha256": "05f527a102fb81c4f915cd6ed97f1e3d6d07fb10975ea192613648b85533cfbe"
+    "bytes": 9441,
+    "sha256": "aad4a8c4b4e2f652758c5ffda3c3d76ddf26fa91b08f152ea637249cf0b368c6"
+  },
+  "REVIEWER_START_HERE.md": {
+    "bytes": 7279,
+    "sha256": "36d993017c3e7cc2c1c4bc02fa71e1b17da4979fe2cf7a4d922cbd60784a004a"
   },
   "audit/atlas_assessment.md": {
     "bytes": 795,
@@ -96,8 +100,8 @@
     "sha256": "adc31ea2c7f5200a8841bc11584134167cb6f3cc6359c9e0a3b076c6cf89fa89"
   },
   "build_manuscript.py": {
-    "bytes": 23261,
-    "sha256": "ca0136f95649b7e05415c2bd4fc8fbdd5323367472fb5148c6fc97d8844e922b"
+    "bytes": 24225,
+    "sha256": "70c6ea2a76285e8f6badcf3872bd81f5a5e59236cb31ba883868fe940052bb76"
   },
   "clean_figures.log": {
     "bytes": 94,
@@ -200,12 +204,12 @@
     "sha256": "43b1513377c2ffd432a17983ab68626dc6963640b7aa127a3b8cd9435b5b618c"
   },
   "manuscript/article.md": {
-    "bytes": 14224,
-    "sha256": "98600ba5792555825b5b7e6cf937acf04dd36c1ff1ea3e5c86299b6cb9f97db4"
+    "bytes": 15022,
+    "sha256": "65f30a09b83288f23b408d077eab0cdeb6e866bf4d16349c5bc052ba673e7a04"
   },
   "manuscript/article.pdf": {
-    "bytes": 570311,
-    "sha256": "98ebf76d9216203276ec5352f1ca2aa9ac4ea41893adadf1a3cb01bdf0b684eb"
+    "bytes": 570048,
+    "sha256": "43c4d4df4dc02abc97720ee56bfcea92558c728ae9184f71f73dd14307796f72"
   },
   "manuscript/bibliography.bib": {
     "bytes": 1070,
@@ -309,7 +313,7 @@
   },
   "publication/release_plan.json": {
     "bytes": 1427,
-    "sha256": "834c877b8af7158eaf88b94524b08e51637452163c084c88f5af52c208da6c47"
+    "sha256": "19c1fa48a74fac6df7ddedb1ec31ec1175a653d78b6ff894d67b8f8c0230cc70"
   },
   "publication/repository_attempt.json": {
     "bytes": 1181,
@@ -324,8 +328,8 @@
     "sha256": "9cb5521ceb0695ce5fac9c201b642f3a7346b8a203eb45c19af45f3b8c32bbf4"
   },
   "publication/update_amendment_records.py": {
-    "bytes": 2068,
-    "sha256": "5018b6d74ef0f5457e975e899c6ffe5dab72d25bee6501b12b5b1709975535c4"
+    "bytes": 2146,
+    "sha256": "bfb23af82d90836ac6cd8dec5844fd46b23430e2143a9a81c363cc54df0c6ebc"
   },
   "reproducibility_checklist.md": {
     "bytes": 2180,
@@ -562,6 +566,10 @@
   "tests/test_figure3.py": {
     "bytes": 1737,
     "sha256": "e82e8ed8af27ba04df34b94d95591b10ba921aa16008d9e7907cab12e083f501"
+  },
+  "tests/test_manuscript_quality.py": {
+    "bytes": 2396,
+    "sha256": "738a683f7e4a6659424baab2010dc04180c7ffeb9672283c0759b0306a8997c6"
   },
   "tests/test_metric_invariants.py": {
     "bytes": 1314,

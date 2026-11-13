@@ -43,7 +43,9 @@ def main():
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     manifest.update({name: {} for name in [
         "AMENDMENTS.md",
+        "REVIEWER_START_HERE.md",
         "tests/test_figure3.py",
+        "tests/test_manuscript_quality.py",
         "publication/ORIGINAL_SUBMISSION_RELEASE_PLAN.json",
         "publication/ORIGINAL_SUBMISSION_MANIFEST.json",
         "publication/update_amendment_records.py",

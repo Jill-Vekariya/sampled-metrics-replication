@@ -41,7 +41,7 @@ def main():
     pdfmetrics.registerFontFamily('Body',normal='Body',bold='BodyBold',italic='BodyItalic',boldItalic='BodyBold')
     pdfmetrics.registerFontFamily('Sans',normal='Sans',bold='SansBold',italic='Sans',boldItalic='SansBold')
     styles=getSampleStyleSheet()
-    styles.add(ParagraphStyle('Text',fontName='Body',fontSize=10.1,leading=13.5,spaceAfter=7.0))
+    styles.add(ParagraphStyle('Text',fontName='Body',fontSize=9.9,leading=12.8,spaceAfter=5.5))
     styles.add(ParagraphStyle('Title2',fontName='SansBold',fontSize=20,leading=24,spaceAfter=11))
     styles.add(ParagraphStyle('Sub',fontName='Sans',fontSize=11,leading=15,textColor=colors.HexColor('#505963'),spaceAfter=11))
     styles.add(ParagraphStyle('Head',fontName='SansBold',fontSize=13.3,leading=17,spaceBefore=10,spaceAfter=8))
@@ -116,6 +116,12 @@ def main():
          "macro-evaluation variances, random simulation, finite-catalogue correctness oracles, two operating "
          "systems and transparent comparison at unrounded precision. The fixture and the inconsistency claim "
          "are credited to the original authors; the phenomenon is not presented as a new discovery.")
+    text("Why this is a partial replication: the published example makes a falsifiable claim about "
+         "evaluation rankings, not the training of a particular recommender. We independently implement "
+         "the finite sampled-rank distribution, derive expectations and variances, simulate sampling "
+         "with predeclared seeds, and check the resulting model-order reversals against the source. "
+         "Agreement of these different computational routes verifies that specific numerical "
+         "counterexample; it does not establish the frequency of the effect in real systems.")
     page()
     head('2. Frozen computational protocol')
     text("The catalogue contains n=10000 items and exactly one relevant item for each of five evaluation "
@@ -124,7 +130,7 @@ def main():
     table(['Recommender','Full-catalogue ranks of the five relevant items'],
           [['A','100, 100, 100, 100, 100'],['B','40, 40, 8437, 9266, 4482'],
            ['C','212, 2, 743, 5342, 1548']],[82,389])
-    text("For one relevant item, AP(r)=1/r, NDCG(r)=1/log<sub>2</sub>(r+1), Recall@10(r)=1[râ‰¤10], "
+    text("For one relevant item, AP(r)=1/r, NDCG(r)=1/log<sub>2</sub>(r+1), Recall@10(r)=1[r≤10], "
          "and AUC(r)=(n-r)/(n-1). All reported scores are arithmetic means across the five instances. "
          "The untruncated AP and NDCG definitions follow the source.")
     text("The primary protocol samples m irrelevant items uniformly with replacement, excluding the relevant "
@@ -134,7 +140,7 @@ def main():
     text("Expected metrics are obtained by summing M(1+k)Pr(K=k), for k=0,...,m. The variance of a single "
          "five-instance macro evaluation is the sum of the five instance variances divided by 25, with draws "
          "independent across instances. SD below denotes the square root of this variance. The Monte Carlo "
-         "standard error of an average over R repeated evaluations is SD/âˆšR; the two quantities are distinct.")
+         "standard error of an average over R repeated evaluations is SD/√R; the two quantities are distinct.")
     text("The configuration was frozen before final metric evaluation (protocol v1.0). The primary sample "
          "size is 99 negatives. One thousand repetitions use NumPy seeds 20261112, 20261113 and 20261114 "
          "for A, B and C. Separate 100000-repeat checks use those seeds plus 10000. Twenty-three declared "
@@ -160,15 +166,15 @@ def main():
          "above B. Sampling reverses the A-versus-C comparison for both metrics, without requiring any "
          "particular random realization. The 1000-repeat AP estimates are 0.634902, 0.343412 and 0.325680 "
          "for A, B and C; the corresponding analytic expectations are shown in Table 2.")
-    table(['Model','AP expectation Â± SD','NDCG expectation Â± SD','Recall@10 expectation'],[
-        [model,f"{primary[model,'AP']['expected']:.6f} Â± {primary[model,'AP']['analytic_sd']:.6f}",
-         f"{primary[model,'NDCG']['expected']:.6f} Â± {primary[model,'NDCG']['analytic_sd']:.6f}",
+    table(['Model','AP expectation ± SD','NDCG expectation ± SD','Recall@10 expectation'],[
+        [model,f"{primary[model,'AP']['expected']:.6f} ± {primary[model,'AP']['analytic_sd']:.6f}",
+         f"{primary[model,'NDCG']['expected']:.6f} ± {primary[model,'NDCG']['analytic_sd']:.6f}",
          f"{primary[model,'Recall@10']['expected']:.6f}"] for model in ['A','B','C']],[45,151,160,115])
     text('<b>Table 2.</b> Analytic moments of a single five-instance evaluation, m=99, with replacement. '
          'The SD is not the uncertainty of the analytic expectation.','Small2')
     figure('rank_reversal.png','Figure 1. Full-catalogue metrics, sampled expectations and 1000-repeat Monte Carlo means for the published rank fixture.',168)
     text("Across the declared uncorrected sample sizes and both sampling schemes, the largest absolute AUC "
-         "expectation error is 1.23Ã—10<super>-15</super> or less. Every calibration mean falls within five "
+         "expectation error is 1.23×10<super>-15</super> or less. Every calibration mean falls within five "
          "analytic Monte Carlo standard errors of its target (largest absolute standardized error below 1.2).")
     page()
     head('5. Sample-size sensitivity and secondary analyses')
@@ -189,41 +195,45 @@ def main():
     head('6. Agreement, uncertainty and discrepancies')
     text("All primary directional checks pass. The source's Table 2 contains simulation estimates rather "
          "than exact expectations; its random seed is not specified in the selected article. For example, "
-         "the source reports A's sampled AP as 0.630Â±0.129, compared with the independently calculated "
+         "the source reports A's sampled AP as 0.630±0.129, compared with the independently calculated "
          "expectation 0.636592 and SD 0.130393. A repeated-evaluation mean need not match to three decimals.")
     text("No published Table 2 mean triggers the frozen diagnostic threshold: a 0.0005 rounding allowance "
          "plus 3.29 combined standard errors, conditional on the source's stated 1000 independent "
          "repetitions. This is a descriptive compatibility check, not proof of identical experimental code. "
          "The exact SDs, the new simulated SDs, source SDs and every mean difference are retained in CSV. "
          "No population p-value or user-bootstrap interval is appropriate for these five designed instances.")
+    text("A source-to-output comparison table in REVIEWER_START_HERE.md links the original "
+         "Tables 1-2 and Figures 2-3 to each reproduced artifact. Curves are computed "
+         "on declared grids and are not claimed to be pixel-identical graphics.",'Small2')
     head('7. Execution and reproducibility')
     text("The primary implementation was executed through Desktop Commander on a Windows 11 laptop with "
          "16 GB RAM and 12 logical processors, using Python 3.13.3, NumPy 2.5.4 and SciPy 1.18.1. "
-         "All 40 tests passed before final evaluation. An earlier run stopped before metric evaluation "
+         "The archived primary evaluation passed 40 tests at that time. An earlier run stopped before metric evaluation "
          "because Windows path separators broke a provenance lookup. The path serialization was corrected, "
          "the failure log retained and the experiment rerun; the scientific protocol was unchanged.")
     text("Linux execution (Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0) agreed to numerical precision. "
-         "A fresh Windows virtual environment installed pinned dependencies, passed all 40 tests and "
+         "A fresh Windows virtual environment installed pinned dependencies, passed the original 40 tests and "
          "repeated the experiment. Every primary summary and saved Monte Carlo array matched the first "
-         "Windows run exactly. Source and protocol hashes, Git commits, seeds, software versions, timings "
+         "Windows run exactly. The later maintained repository passed 140 tests on 14 November 2026. "
+         "This expanded suite is a post-submission software validation, not part of the frozen initial run. "
+         "Source and protocol hashes, Git commits, seeds, software versions, timings "
          "and the detailed reproduction report accompany the package.")
     text('python -m pip install -r requirements.txt<br/>'
          'python -m pip install -r requirements-manuscript.txt<br/>python -m pytest -q<br/>'
          'python run_experiments.py --output results/new-run<br/>'
          'python build_manuscript.py','Code2')
-    text("Run commands from the project root. A new output directory is required to preserve existing "
-         "evidence. The manuscript builder uses the archived Windows result table and regenerates its "
-         "numerical tables automatically; a comparison script audits rerun values against that evidence.")
+    text("Run from the project root, following REVIEWER_START_HERE.md. Use a new output directory "
+         "to protect the archived evidence. The builder regenerates manuscript tables from "
+         "the preserved Windows results; compare_results.py audits an independent rerun.")
     head('8. Limitations and conclusion')
     text("This is a partial replication of an intentionally designed counterexample. It provides no estimate "
          "of prevalence in deployed systems, no performance benchmark, no evidence about training quality, "
          "and no reproduction of corrected-metric success rates on real data. The five instances have "
          "independent candidate draws; shared candidate sets would require a different variance calculation. "
          "The literature and journal overlap searches are documented but do not prove novelty or editorial suitability.")
-    text("Within this fixed and explicit scope, the independent calculations support the original result: "
-         "sampling can change the question answered by a ranking metric and reverse a relative comparison "
-         "in expectation. Repeating a biased sampled evaluation more often does not recover the intended "
-         "full-catalogue metric. The preserved code and numerical oracles make that claim directly testable.")
+    text("The independent calculations support the published result: sampling can reverse a model "
+         "comparison in expectation, and repeatedly evaluating a biased sampled metric does not "
+         "recover the full-catalogue comparison. The code and numerical oracles make this testable.")
     page()
     head('Appendix. Metric-shape verification')
     figure('metric_shape.png','Figure 3. Independent reconstruction of source Figure 3: expected sampled metrics including Recall@5 (rather than Recall@10), shown through rank 1000 of n=10000.',285)
@@ -236,12 +246,14 @@ def main():
          "Repository: "+CODE_URL+". "
          "No third-party article PDF or real-user dataset is included "
          "in the release archive. The independent code is licensed under MIT and the manuscript under CC BY 4.0.",'Small2')
-    text("The author approved this manuscript and accepts responsibility for its contents, including the "
-         "disclosed AI assistance. The author declares no competing interests and no external research "
-         "funding, no simultaneous journal submission, and no close collaboration with the original authors. "
-         "AI assistance: ChatGPT generated "
-         "and revised research code, performed tool-driven execution and audits, and drafted this manuscript. "
-         "The described review passes are simulated AI assessments, not independent human peer review.",'Small2')
+    text("The author declares no competing interests and no external research funding, "
+         "no simultaneous journal submission, and no close collaboration with the original authors. "
+         "The author reviewed and accepts responsibility for the computations, interpretations, "
+         "source code and manuscript.",'Small2')
+    text("Tool-use disclosure: ChatGPT assisted with code generation, computational checks, "
+         "analysis and manuscript drafting. All published results are supported by the "
+         "executable code and recorded data; internal assessments are not independent "
+         "external peer review.",'Small2')
     head('References')
     refs=[
       '[1] W. Krichene and S. Rendle. On Sampled Metrics for Item Recommendation (Extended Abstract). Proceedings of IJCAI 2021, pp. 4784-4788. DOI: 10.24963/ijcai.2021/651. Primary replication target.',

@@ -12,6 +12,10 @@ Full-catalogue AP: A 0.010000, B 0.010090, C 0.101379.
 
 Expected AP with 99 uniformly sampled negatives and replacement: A 0.636592, B 0.340739, C 0.326169. Thus A versus C reverses in expectation. Expected AUC remains unchanged. All twelve published Table 1 entries match to their printed precision.
 
+## Reviewer entrypoint
+
+**Start with [REVIEWER_START_HERE.md](REVIEWER_START_HERE.md)** for an end-to-end reproduction, original-paper-to-result crosswalk (Tables 1-2, Figures 2-3), scientific boundaries, and preserved provenance. A successful automated test or release check is not a substitute for independent editorial review. See [AMENDMENTS.md](AMENDMENTS.md) for the documented figure correction.
+
 ## Reproduce the numerical study
 
 Python 3.12 or 3.13 is recommended. Work from this directory. Use a fresh output directory so previous evidence is preserved.
@@ -90,7 +94,7 @@ The release verifier reads YAML metadata. Install `requirements-manuscript.txt`,
 
 ## Post-submission Figure 3 correction (14 November 2026)
 
-An amendment to the illustrative IJCAI Figure 3 reconstruction replaces Recall@10 with **Recall@5**, matching the source's Figure 3. **Tables 1-2 and Figure 2 intentionally retain Recall@10**, and the frozen numerical protocol and archived simulation results are unchanged. Nine focused regression tests were added; the complete updated suite passes **134 tests**.
+An amendment to the illustrative IJCAI Figure 3 reconstruction replaces Recall@10 with **Recall@5**, matching the source's Figure 3. **Tables 1-2 and Figure 2 intentionally retain Recall@10**, and the frozen numerical protocol and archived simulation results are unchanged. Nine Figure 3 regression tests and six manuscript-quality checks were added; the complete updated suite passes **140 tests**.
 
 See [AMENDMENTS.md](AMENDMENTS.md) for the technical rationale and the original submission baseline records. The review request is still [ReScience C issue #158](https://github.com/ReScience/submissions/issues/158). This is a correction to an existing submission, not a new submission or an acceptance claim.
 

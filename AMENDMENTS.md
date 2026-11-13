@@ -1,5 +1,14 @@
 # Post-submission amendment record
 
+## 14 November 2026 - Reviewer-readiness and manuscript-quality corrections
+
+- Corrected all known mojibake sequences in the executable manuscript builder and regenerated Markdown/PDF: mathematical inequality (≤), standard deviation (±), square root (√), and scientific-notation multiplication (×). A static test now fails if those corrupted sequences reappear.
+- Added a bounded explanation of why independently computed finite distributions, simulation checks and rank reversals constitute a meaningful **partial** replication; this does not claim reproduction of trained models or real datasets.
+- Distinguished the historical 40-test original execution from the later expanded regression suite, without modifying the historical experiment log.
+- Created `REVIEWER_START_HERE.md` with exact source-paper-to-output mapping, comparison criteria, Linux/Windows commands, historical evidence locations and scope boundaries.
+- Added non-mutating manuscript/metadata/reviewer-guide regression tests; clarified the PDF text and refined typography to avoid an orphaned page.
+- Preserved a concise and accurate tool-use disclosure in the article. The public record and historical documentation were not rewritten to imply research assistance did not occur.
+
 ## 14 November 2026 - Figure 3 fidelity and manuscript rendering
 
 The original submission remains ReScience C issue #158 (submitted 12 November 2026).
